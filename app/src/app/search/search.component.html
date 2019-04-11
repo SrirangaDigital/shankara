@@ -1,0 +1,144 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md"></div>
+    <div class="col-md-10 mainpage">
+      <h1>अंक संग्रह : खोज</h1>
+      <p class="feng">Type in English and press Space bar to transliterate to Hindi. Press Backspace to make corrections. This requires an Internet connection.<br /> Alternatively, the soft keyboard provided could also be used.</p>
+  	  <form class="searchForm" role="form" (ngSubmit)="onSubmit()" [formGroup]="searchForm">
+  	  	<div class="row justify-content-between">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <mat-form-field class="search-full-width">
+                <mat-label>लेख</mat-label>
+                <input type="text" aria-label="Number" matInput formControlName="title" id="title" class="form-control" (focus)="onFocus('title')">
+              </mat-form-field>
+            </div>
+            <div class="form-group row">
+              <mat-form-field class="search-full-width">
+                <mat-label>लेखक</mat-label>
+                <input type="text" aria-label="Author" matInput formControlName="authornames" [matAutocomplete]="autoAuthor" id="authornames" class="form-control" (focus)="onFocus('authornames')">
+                <mat-autocomplete #autoAuthor="matAutocomplete">
+                  <mat-option *ngFor="let author of filteredAuthorOptions | async" [value]="author.author">
+                    {{ author.author }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </div>
+            <div class="form-group row">
+              <mat-form-field class="search-full-width">
+                <mat-label>अनुवादक</mat-label>
+                <input type="text" aria-label="Translator" matInput formControlName="translatornames" [matAutocomplete]="autoTranslator" id="translatornames" class="form-control" (focus)="onFocus('translatornames')">
+                <mat-autocomplete #autoTranslator="matAutocomplete">
+                  <mat-option *ngFor="let translator of filteredTranslatorOptions | async" [value]="translator.translator">
+                    {{ translator.translator }}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </div>
+            <div class="form-group row">
+              <mat-form-field class="search-full-width">
+                <mat-label>स्तम्भ</mat-label>
+                <input type="text" aria-label="Number" list="features" matInput formControlName="feature" id="feature" class="form-control" (focus)="onFocus('feature')">
+                <datalist id="features">
+                  <option *ngFor="let feature of features" value="{{ feature }}"></option>
+                </datalist>
+              </mat-form-field>
+            </div>
+            <div class="form-group row">
+              <mat-form-field class="search-full-width">
+                <mat-label>लेखमाला</mat-label>
+                <input type="text" aria-label="Number" matInput formControlName="series" id="series" class="form-control" (focus)="onFocus('series')">
+              </mat-form-field>
+            </div>
+            <div class="form-group row">
+              <mat-form-field class="search-full-width">
+                <mat-label>शब्द</mat-label>
+                <input type="text" aria-label="Number" matInput formControlName="fulltext" id="fulltext" class="form-control" (focus)="onFocus('fulltext')">
+              </mat-form-field>
+            </div>
+            <div class="form-group row">
+              <mat-form-field class="search-full-width">
+                <mat-label>अवधि</mat-label>
+                <input type="text" placeholder="(Year1-Year2)" aria-label="Number" matInput formControlName="year" id="year" class="form-control">
+              </mat-form-field>
+            </div>
+            <div class="row justify-content-center mt-5">
+              <div class="col-md-4">
+                <input name="submit" id="submit" class="form-control" type="submit" value="खोज">
+              </div>
+              <div class="col-md-4">
+                <input name="reset" id="reset" class="form-control" type="reset" value="रीसेट">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 pt-5">
+            <div id="kbd">
+                <div class="keys lline tline" id="a" style="clear: left;" (click)="insertText('अ')">अ</div>
+                <div class="keys tline" id="A" (click)="insertText('आ')">आ</div>
+                <div class="keys tline" id="i" (click)="insertText('इ')">इ</div>
+                <div class="keys tline" id="I" (click)="insertText('ई')">ई</div>
+                <div class="keys tline" id="u" (click)="insertText('उ')">उ</div>
+                <div class="keys tline" id="U" (click)="insertText('ऊ')">ऊ</div>
+                <div class="keys tline" id="Ru" (click)="insertText('ऋ')">ऋ</div>
+                <div class="keys tline" id="RU" (click)="insertText('ॠ')">ॠ</div>
+                <div class="keys tline" id="e" (click)="insertText('ए')">ए</div>
+                <div class="keys tline" id="ai" (click)="insertText('ऐ')">ऐ</div>
+                <div class="keys lline" id="o" style="clear:left;border-bottom: none;" (click)="insertText('ओ')">ओ</div>
+                <div class="keys" id="au" style="border-bottom: none;" (click)="insertText('औ')">औ</div>
+                <div class="keys" id="M" style="border-bottom: none;" (click)="insertText('ं')">ं</div>
+                <div class="keys" id="H" style="border-bottom: none;" (click)="insertText('ः')">ः</div>
+                <div class="keys lline tline" style="clear: left;" id="ka" (click)="insertText('क')">क</div>
+                <div class="keys tline" id="Ka" (click)="insertText('ख')">ख</div>
+                <div class="keys tline" id="ga" (click)="insertText('ग')">ग</div>
+                <div class="keys tline" id="Ga" (click)="insertText('घ')">घ</div>
+                <div class="keys tline" id="kna" (click)="insertText('ङ')">ङ</div>
+                <div class="keys lline" style="clear: left;" id="ca" (click)="insertText('च')">च</div>
+                <div class="keys" id="Ca" (click)="insertText('छ')">छ</div>
+                <div class="keys" id="ja" (click)="insertText('ज')">ज</div>
+                <div class="keys" id="Ja" (click)="insertText('झ')">झ</div>
+                <div class="keys" id="cna" (click)="insertText('ञ')">ञ</div>
+                <div class="keys lline" style="clear: left;" id="Ta" (click)="insertText('ट')">ट</div>
+                <div class="keys" id="Tha" (click)="insertText('ठ')">ठ</div>
+                <div class="keys" id="Da" (click)="insertText('ड')">ड</div>
+                <div class="keys" id="Dha" (click)="insertText('ढ')">ढ</div>
+                <div class="keys" id="Na" (click)="insertText('ण')">ण</div>
+                <div class="keys lline" style="clear: left;" id="ta" (click)="insertText('त')">त</div>
+                <div class="keys" id="tha" (click)="insertText('थ')">थ</div>
+                <div class="keys" id="da" (click)="insertText('द')">द</div>
+                <div class="keys" id="dha" (click)="insertText('ध')">ध</div>
+                <div class="keys" id="na" (click)="insertText('न')">न</div>
+                <div class="keys lline" style="clear: left;border-bottom:none;" id="pa" (click)="insertText('प')">प</div>
+                <div class="keys" id="Pa" style="border-bottom: none;" (click)="insertText('फ')">फ</div>
+                <div class="keys" id="ba" style="border-bottom: none;" (click)="insertText('ब')">ब</div>
+                <div class="keys" id="Ba" style="border-bottom: none;" (click)="insertText('भ')">भ</div>
+                <div class="keys" id="ma" style="border-bottom: none;" (click)="insertText('म')">म</div>
+                <div class="keys lline tline" style="clear: left;" id="ya" (click)="insertText('य')">य</div>
+                <div class="keys tline" id="ra" (click)="insertText('र')">र</div>
+                <div class="keys tline" id="la" (click)="insertText('ल')">ल</div>
+                <div class="keys tline" id="va" (click)="insertText('व')">व</div>
+                <div class="keys tline" id="Sa" (click)="insertText('श')">श</div>
+                <div class="keys tline" id="sha" (click)="insertText('ष')">ष</div>
+                <div class="keys tline" id="sa" (click)="insertText('स')">स</div>
+                <div class="keys tline" id="ha" (click)="insertText('ह')">ह</div>
+                <div class="keys tline" id="La" (click)="insertText('ळ')">ळ</div>
+                <div class="keys lline" style="clear: left;" id="Akara" (click)="insertText('ा')">ा</div>
+                <div class="keys" id="ikara" (click)="insertText('ि')">ि</div>
+                <div class="keys" id="Ikara" (click)="insertText('ी')">ी</div>
+                <div class="keys" id="ukara" (click)="insertText('ु')">ु</div>
+                <div class="keys" id="Ukara" (click)="insertText('ू')">ू</div>
+                <div class="keys" id="Rukara" (click)="insertText('ृ')">ृ</div>
+                <div class="keys" id="RUkara" (click)="insertText('ृ')">ॄ</div>
+                <div class="keys lline" id="ekara" style="clear: left;" (click)="insertText('े')">े</div>
+                <div class="keys" id="aikara" (click)="insertText('ै')">ै</div>
+                <div class="keys" id="okara" (click)="insertText('ो')">ो</div>
+                <div class="keys" id="aukara" (click)="insertText('ौ')">ौ</div>
+                <div class="keys" id="avagraha" (click)="insertText('ऽ')">ऽ</div>
+                <div class="keys" id="halanta" (click)="insertText('्')">्</div>
+            </div>
+          </div>
+        </div>
+	    </form>
+    </div>
+    <div class="col-md"></div>
+  </div>
+</div>

@@ -1,0 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md"></div>
+    <div class="col-md-10 mainpage">
+
+      <h1>अंक संग्रह : {{ pageTitle }}</h1>
+      <h5 *ngIf="numArticles > 1 &amp;&amp; articleListType != 'articlesLetterWise'" class="num-results">{{ numArticles.toString() | toDevanagari }} लेख</h5>
+      <div *ngIf="articleListType == 'articlesLetterWise'" class="alphabet">
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^अ'}">अ</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^आ'}">आ</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^इ'}">इ</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ई'}">ई</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^उ'}">उ</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ऋ'}">ऋ</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ए'}">ए</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ऐ'}">ऐ</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ओ'}">ओ</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^औ'}">औ</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^क'}">क</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ग'}">ग</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^च'}">च</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^छ'}">छ</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ज'}">ज</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^झ'}">झ</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ट'}">ट</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ठ'}">ठ</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ड'}">ड</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^त'}">त</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^द'}">द</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ध'}">ध</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^न'}">न</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^प'}">प</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^फ'}">फ</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ब'}">ब</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^भ'}">भ</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^म'}">म</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^य'}">य</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^र'}">र</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ल'}">ल</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^व'}">व</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^श'}">श</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ष'}">ष</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^स'}">स</a></span> 
+        <span class="letter"><a routerLink="/articles/articlesLetterWise" [queryParams]="{title: '@^ह'}">ह</a></span> 
+      </div>
+
+      <div *ngFor="let article of articles" class="full-width-card blue-edge">
+        <h4 class="publication-details">
+          <span *ngIf="article.feature" class="red"><a routerLink="/articles/feature" [queryParams]="{feature: article.feature}"><i class="fa fa-tags"></i> {{ article.feature }}</a></span>
+          <span *ngIf="article.series" class="red"><a routerLink="/articles/series" [queryParams]="{series: article.series}"><i class="fa fa-link"></i> {{ article.series }}</a></span>
+          <span class="gray"><a routerLink="/articles/toc" [queryParams]="{volume: article.volume, part: article.part}">{{ article.date | monthToDevanagari }} {{ article.year | toDevanagari }} (वर्ष {{ article.volume | rlzero | toDevanagari}}, अंक {{ article.part | rlzero | toDevanagari}})</a></span>
+        </h4>
+        <h2 class="title">
+          <p *ngIf="article.series" class="serial-no red">क्रमांक {{ article.tnum | rlzero | toDevanagari}}</p>
+          <a target="_blank" [href]="basePdfUrl + article.volume + '/' + article.part + '/index.pdf#page=' + article.page" class="pdf">{{ article.title }}</a>
+        </h2>
+        <h3 class="author by">
+          <span *ngIf="article.authornames != ''">
+            <span *ngFor="let author of article.authornames"><a routerLink="/articles/author" [queryParams]="{authornames: author}">{{ author }}</a></span>
+          </span>
+          <span *ngIf="article.translatornames != ''">
+            अनुवाद - 
+            <span *ngFor="let translator of article.translatornames"><a routerLink="/articles/translator" [queryParams]="{translatornames: translator}">{{ translator }}</a></span>
+          </span>
+        </h3>
+      </div>
+    </div>
+    <div class="col-md"></div>
+  </div>
+</div>

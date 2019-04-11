@@ -1,0 +1,49 @@
+{
+  "name": "shankara-granthavali",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Sriranga Digital Software Technologies Private Limited",
+  "description": "Digital edition of the Shankara Granthavali published by Vani Vilas",
+  "scripts": {
+    "electron": "electron app",
+    "electron-build": "ng build --prod && electron .",
+    "dist": "build --x64"
+  },
+  "build": {
+    "appId": "com.srirangadigital.vvj",
+    "asar": true,
+    "directories": {
+      "output": "release-builds"
+    },
+    "copyright": "©2019 Sriranga Digital, Mysuru",
+    "linux": {
+      "target": "AppImage",
+      "executableName": "shankara-granthavali-linux",
+      "icon": "build/icon.png",
+      "category": "Education"
+    },
+    "win": {
+      "target": "nsis",
+      "publisherName": "Sriranga Digital Software Technologies Private Limited"
+    },
+    "mac": {
+      "category": "public.app-category.education",
+      "target": "dmg",
+      "icon": "build/icon.icns"
+    },
+    "appImage": {
+      "artifactName": "Shankara Granthavali - For Linux"
+    },
+    "nsis": {
+      "installerIcon": "build/icon.ico"
+    }
+  },
+  "private": true,
+  "dependencies": {
+    "electron-context-menu": "^0.9.1"
+  },
+  "devDependencies": {
+    "electron": "^1.8.2",
+    "electron-builder": "^20.40.2"
+  }
+}

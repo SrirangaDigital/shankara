@@ -1,0 +1,60 @@
+@font-face {
+  font-family: 'Sanskrit2003';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Sanskrit2003'), url('fonts/Sanskrit2003.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Lato Hairline'), local('Lato-Hairline'), url('fonts/Lato/Lato-Hairline.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url('fonts/Lato/Lato-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'), url('fonts/Lato/Lato-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Old Standard TT';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Old Standard TT Italic'), local('OldStandardTT-Italic'), url('fonts/Old_Standard_TT/OldStandard-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Old Standard TT';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Old Standard TT Regular'), local('OldStandardTT-Regular'), url('fonts/Old_Standard_TT/OldStandard-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Old Standard TT';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Old Standard TT Bold'), local('OldStandardTT-Bold'), url('fonts/Old_Standard_TT/OldStandard-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Roboto Thin'), local('Roboto-Thin'), url('fonts/Roboto/Roboto-Thin.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Roboto Light'), local('Roboto-Light'), url('fonts/Roboto/Roboto-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Roboto'), local('Roboto-Regular'), url('fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+}

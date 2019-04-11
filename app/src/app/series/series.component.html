@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md"></div>
+    <div class="col-md-10 mainpage">
+
+      <h1>अंक संग्रह : लेखमाला</h1>
+
+      <div *ngFor="let item of series" class="full-width-card red-edge">
+        <h3 class="author"><a routerLink="/articles/series" [queryParams]="{series: item}">{{ item }}</a></h3>
+      </div>
+    </div>
+    <div class="col-md"></div>
+  </div>
+</div>

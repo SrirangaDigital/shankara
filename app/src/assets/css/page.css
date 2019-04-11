@@ -1,0 +1,390 @@
+.mainpage{
+  margin-top: 72px;
+  margin-bottom: 100px;
+  font-family: 'Sanskrit2003', sans-serif;
+  font-size: 18px;
+}
+.mainpage h1{
+  font-size: 24px;
+  color: #333;
+  border-bottom: 1px solid #1565C0;
+  padding-bottom: 12px;
+  margin-bottom: 8px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+.mainpage h2{
+  font-size: 18px;
+  color: #1565C0;
+  font-weight: 400;
+  margin-top: 20px;
+}
+.mainpage .full-width-card{
+  margin: 30px 0;
+  padding: 20px;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  line-height: 1.5;
+  min-height: 50px;
+}
+.mainpage a{
+  color: inherit;
+  text-decoration: none;
+}
+.mainpage .full-width-card a:hover{
+  border-bottom: 1px dotted #BBB;
+}
+.mainpage .full-width-card:hover{
+  box-shadow: 0 1px 5px rgba(34, 25, 25, 0.6);
+}
+.mainpage .full-width-card.blue-edge{
+  border-left: 5px solid #1565C0;
+}
+.mainpage .full-width-card.red-edge{
+  border-left: 3px solid #D84315;
+}
+.mainpage .full-width-card h4.publication-details span:not(:last-of-type):after{
+  content: ' | ';
+  color: #444;
+  margin: 0 8px;
+}
+.mainpage .full-width-card h4.publication-details{
+  font-size: 16px;
+  font-weight: 300;
+}
+.mainpage .full-width-card h2.title{
+  font-size: 20px;
+  color: #333;
+  font-weight: 300;
+  padding-top: 20px;
+}
+.mainpage .full-width-card h3.author:empty,
+.mainpage .full-width-card h3.translator:empty{
+  display: none;
+}
+.mainpage .full-width-card h3.author,
+.mainpage .full-width-card h3.translator{
+  font-size: 18px;
+  color: #555;
+  font-weight: 300;
+  /*padding-top: 8px;*/
+}
+.mainpage .full-width-card h3.author.by:before,
+.mainpage .full-width-card h3.translator.by:before{
+ content: '–';
+ margin-right: 2px;
+}
+.mainpage .full-width-card h3.author span:not(:first-of-type):not(:last-of-type):before,
+.mainpage .full-width-card h3.translator span:not(:first-of-type):not(:last-of-type):before{
+ content: ', ';
+}
+.mainpage .full-width-card h3.author span:not(:first-of-type):last-of-type:before,
+.mainpage .full-width-card h3.translator span:not(:first-of-type):last-of-type:before{
+ content: ' और ';
+ color: #999;
+ font-size: 16px;
+}
+.mainpage span.article-count {
+  float: right !important;
+  font-weight: 300;
+}
+.mainpage .gray{
+  color: #555;
+}
+.mainpage .red{
+  color: #D84315;
+}
+.mainpage .red i{
+  color: #FF8A65;
+}
+.mainpage .brown{
+  color: #9c581b;
+}
+.mainpage .gold{
+  color: #FB8C00;
+}
+.mainpage .alphabet {
+  margin-top: 20px;
+  font-weight: 300;
+}
+.mainpage .alphabet .letter {
+  font-size: 18px;
+  margin-right: 10px;
+}
+.mainpage .yearRow{
+  margin: 30px 0 0 0;
+  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
+  line-height: 1.5;
+  min-height: 30px;
+  justify-content: space-around;
+}
+.mainpage .yearRow .year{
+  font-size: 20px;
+  padding: 10px;
+  min-width: 80px;
+  text-align: center;
+}
+.mainpage .yearRow .year:hover, .yearRow .active{
+  background-color: #EEE;
+  border-radius: 10px 10px 0 0;
+  cursor: pointer;
+  box-shadow: 0px -1px 2px rgba(34, 25, 25, 0.4);
+}
+.mainpage .issueHolder{
+  margin: 0px auto 0 auto;
+  box-shadow: 0px 2px 2px rgba(34, 25, 25, 0.1);
+  line-height: 1.5;
+  display: none;
+  width: 100%;
+}
+.mainpage .issueRow{
+  background-color: #EEE;  
+  width: 100%;
+}
+.mainpage .issueRow.row{
+  margin-right: 0;
+  margin-left: 0;
+}
+.mainpage .issueRow .issue{
+  font-size: 17px;
+  padding: 10px 0 10px 0;
+  text-align: center;
+  color: #555;
+}
+.mainpage .issueRow .issue a{
+  color: #3D3536;
+}
+.mainpage .issueRow .deLimiter{
+  font-size: 14px;
+  padding: 10px 0 10px 0;
+}
+
+/*Search styles*/
+.mainpage .searchForm {
+  margin-top: 64px;
+  font-family: 'Sanskrit2003', sans-serif;
+}
+/*Angular styles for forms*/
+mat-form-field.mat-form-field{
+  font-family: 'Sanskrit2003' !important;
+  font-size: 18px !important;
+  line-height: 24px !important;
+  padding-left: 20px;
+}
+mat-label {
+  color: #1565C0 !important;
+  font-size: 20px !important;
+}
+.mainpage .searchForm .row{
+  margin-bottom: 0px;
+}
+.mainpage .searchForm .form-control-label{
+  text-align: right;
+  vertical-align: bottom;
+  font-size: 20px;
+  font-weight: 300;
+  color: #555;
+}
+.mainpage .searchForm input.form-control:focus{
+  box-shadow: none;
+}
+.mainpage .searchForm input.form-control[type="text"]{
+  border: none;
+  border-radius: 0;
+  outline: none;
+  padding-top: 7px;
+  font-size: 20px;
+  font-weight: 300;
+  color: #555;
+}
+.mainpage .searchForm input.form-control[type="submit"], 
+.mainpage .searchForm input.form-control[type="reset"]{
+  border-radius: 0;
+  cursor: pointer;
+}
+.mainpage .searchForm input.form-control[type="submit"]:focus, 
+.mainpage .searchForm input.form-control[type="submit"]:hover {
+  border-color: #28a745;
+}
+.mainpage .searchForm input.form-control[type="reset"]:focus, 
+.mainpage .searchForm input.form-control[type="reset"]:hover{
+  border-color: #dc3545;
+}
+
+.search-full-width {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.mainpage .no-results{
+  margin-top: 50px;
+  color: #D84315;
+}
+.mainpage .num-results{
+  margin-top: 20px;
+  color: #1565C0;
+  font-weight: 300;
+  font-size: 18px;
+}
+.mainpage .search-progress{
+  width: 100%;
+  height: 5px;
+}
+.mainpage p, .mainpage blockquote, .mainpage dl, .mainpage ul, .mainpage ol, .archiveIcon{
+  font-family: 'Sanskrit2003', sans-serif;
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: #333;
+  line-height: 32px;
+}
+.mainpage blockquote{
+  margin-left: 60px;
+  margin-right: 60px;
+  font-style: italic;
+  margin-top: 40px;
+}
+.mainpage blockquote:before{
+  font-family: serif;
+  content: '“';
+  color: #AAA;
+  font-size: 100px;
+  position: absolute;
+  margin-left: -72px;
+}
+.mainpage blockquote p{
+  margin-bottom: 10px;
+}
+.mainpage blockquote .author{
+  font-weight: 400;
+  text-align: right;
+  color: #1565C0;
+}
+.mainpage dl dt, .mainpage dl dd {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  font-weight: 300;
+  color: #333;
+  line-height: 32px;
+  border-bottom: 1px solid #EEE;
+}
+.mainpage dl dt{
+  text-align: right;
+  font-style: italic;
+}
+.mainpage dl dd{
+  margin-bottom: 0;
+}
+.mainpage .clr{
+  color: #1565C0;
+}
+.mainpage .clr a{
+  border-bottom: 1px dotted #1565C0;
+}
+.triggerClick a{
+  cursor: pointer;
+}
+.mainpage .archiveIcon{
+  text-align: center;
+}
+.mainpage .archiveIcon a{
+  display: inline-block;
+}
+.mainpage .archiveIcon i{
+  font-size: 72px;
+  color: #CCC;
+  padding: 20px 0;
+}
+.mainpage .archiveIcon span{
+  font-size: 52px;
+  color: #CCC;
+  padding: 30px 0 30px;
+}
+.mainpage .archiveIcon i:hover,
+.mainpage .archiveIcon span:hover{
+  color: #FF8A65;
+}
+.mainpage .full-width-card h2.title .serial-no{
+  font-size: 16px;
+  margin-bottom: 0;
+}
+.mainpage .card.editor{
+  text-align: center;
+  padding: 10px;
+  border: none;
+}
+.mainpage .editor .card-text{
+  font-size: 20px;
+}
+.mainpage .editor .card-text .period{
+  font-size: 16px;
+}
+
+/*Other styles*/
+a.goBack{
+  cursor: pointer;
+  color: #1565C0 !important;
+  font-family: 'Sanskrit2003', sans-serif;
+}
+
+
+/*Soft Keyboard*/
+
+@media(max-width:768px) {
+  #kbd{
+    display: none;
+  }
+}
+#kbd{
+  width: 360px;
+  /*float: right;*/
+  margin-right: 0px;
+}
+.keys{
+  font-size: 20px;
+  width: 36px;
+  height: 36px;
+  float: left;
+  border-right: 1px solid #FF8A65;
+  border-bottom: 1px solid #FF8A65;
+  padding: 2px;
+  text-align: center;
+  cursor:pointer;
+  /*color: #AAA;*/
+}
+.keys:HOVER{
+  background-color: #FFF9C4;
+}
+.tline {
+  border-top: 1px solid #FF8A65;
+}
+.lline {
+  border-left: 1px solid #FF8A65;
+}
+
+/*cover page*/
+.cover{
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+}
+.cover img {
+  height: 192px !important;
+}
+
+.feng{
+  font-family: 'Lato', sans-serif !important;
+}
+
+.scroll-top{
+  font-family: 'Lato', sans-serif !important;
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align:center;
+  width: 50px;
+  color: #1565C0;
+  display: none;
+}
+

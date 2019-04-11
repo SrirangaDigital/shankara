@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md"></div>
+    <div class="col-md-10 mainpage">
+
+      <h1>अंक संग्रह : वर्ष</h1>
+      <div (click)="togglePartsContainer(iy)" *ngFor="let yearLoop of yearLoopVar; let iy = index" class="yearRow row justify-content-around">
+      	<div *ngFor="let year of years | slice: (iy * yearsPerRow) : yearsPerRow * (iy + 1); let jy = index" (click)="showParts(year)" [ngClass]="{'col-1': true, 'year': true, 'active': yearDisplayed[year]}">{{ year | toDevanagari }}</div>
+  	  	<div *ngIf="rowDisplayed[iy]" id="issueHolder" class="issueHolder" style="display: block;">
+  			  <div  *ngFor="let partLoop of partLoopVar; let ip = index" class="issueRow row justify-content-start">
+	  			  <div *ngFor="let part of parts | slice: (ip * partsPerRow) : partsPerRow * (ip + 1); let jp = index" class="issue col">
+	  				  <a title="{{ 'वर्ष ' + part.volume + ', अंक ' + part.part }}" routerLink="/articles/toc" [queryParams]="{volume: part.volume, part: part.part}">{{ part.date | monthToDevanagari }}</a>
+  				  </div>
+			    </div>
+		    </div>
+      </div>
+    </div>
+    <div class="col-md"></div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md"></div>
+    <div class="col-md-10 mainpage">
+
+      <h1>अंक संग्रह : आवरण-पृष्ठ</h1>
+
+      <div class="row coverHolder" id="coverPages" viewer>
+        <div class="col-md-2 cover" *ngFor="let cover of covers; let i=index">
+	        <img id="{{ 'index_' + i }}" class="" attr.data-original="{{ 'assets/covers/main/' + cover.volume + '_' + cover.part + '_cover.jpg' }}" src="{{ 'assets/covers/thumbs/' + cover.volume + '_' + cover.part + '_cover.jpg' }}" alt="{{ cover.date | monthToDevanagari }} {{ cover.year | toDevanagari }} (वर्ष {{ cover.volume | rlzero | toDevanagari }}, अंक {{ cover.part | rlzero | toDevanagari }})"/>
+        </div>
+      </div>
+    </div>
+    <div class="col-md"></div>
+  </div>
+</div>

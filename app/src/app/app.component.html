@@ -1,0 +1,51 @@
+<div class="homepage container-fluid p-0 banner">
+    <div class="intro parallax mx-0 row justify-content-end" parallax-speed="6">
+        <div class="col-md-5 p-0">
+            <div class="titlegroup">
+                <h2 class="subtitle">श्री सच्चिदानन्दशिवाभिनव्य<br /><span class="ml-5 pl-5">नृसिंहभारत्यभिधान्यतीन्द्रान् ।</span><br />विद्यानिधीन् मन्त्रनिधीन् सदात्मनिष्ठान्<br /><span class="ml-5 pl-5">भजे मानव शंभुरूपान् ॥</span></h2>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-light navbar-expand-lg">
+    <div class="container">
+        <!-- <a class="navbar-brand"><img src="assets/img/logo.png" alt="Logo of Bharatiya Vidya Bhavan" class="img-circle"></a> -->
+        <!-- <span class="navbar-text">विवेक ज्योति<br /><small>रामकृष्ण मिशन विवेकानन्द आश्रम, रायपुर</small></span><br /> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav nav m-auto">
+                <li class="nav-item active"><a class="nav-link" routerLink="/page/home">मुखपृष्ठ <span class="sr-only">(current)</span></a></li>
+                <li class="nav-item"><a routerLink="/page/about" class="nav-link">परिचय</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/page/editors">सम्पादक</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/page/archives">अंक संग्रह</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/page/help">सहायता</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div *ngIf="(router.url != '/') && (router.url != '/page/home')" class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <a (click)="location.back()" class="goBack"><i class="fa fa-arrow-left"></i> पीछे</a>
+      <div id="cd-sec-nav" class="">
+        <a class="cd-sec-nav-trigger">Menu<span></span></a>
+        <nav id="cd-sec-main-nav">
+          <ul class="">
+            <li><a class="years" routerLink="/years"><i class="far fa-calendar-alt"></i> वर्ष</a></li>
+            <li><a class="titles" routerLink="/articles"><i class="fa fa-pencil-alt"></i> लेख</a></li>
+            <li><a class="authors" routerLink="/authors"><i class="fa fa-users"></i> लेखक</a></li>
+            <li><a class="translators" routerLink="/translators"><span class="fa">অ/अ</span> अनुवादक</a></li>
+            <li><a class="features" routerLink="/features"><i class="red fa fa-tags"></i> स्तम्भ</a></li>
+            <li><a class="series" routerLink="/series"><i class="red fa fa-link"></i> लेखमाला</a></li>
+            <li><a class="covers" routerLink="/covers"><i class="red fa fa-image"></i> आवरण-पृष्ठ</a></li>
+            <li><a class="search" routerLink="/search"><i class="fa fa-search"></i> खोज</a></li>
+          </ul>
+        </nav> <!-- cd-sec-main-nav -->
+      </div>
+    </div>
+  </div>
+</div>
+<div (click)="onClick()" class="scroll-top"><i title="Scroll to top" class="far fa-arrow-alt-circle-up"></i></div>
+<router-outlet></router-outlet>
