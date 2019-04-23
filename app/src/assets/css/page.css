@@ -1,17 +1,14 @@
 .mainpage{
-  margin-top: 72px;
-  margin-bottom: 100px;
-  font-family: 'Sanskrit2003', sans-serif;
+  font-family: 'Vanivilas', sans-serif;
   font-size: 18px;
 }
 .mainpage h1{
-  font-size: 24px;
+  text-align: center;
+  font-size: 48px;
   color: #333;
-  border-bottom: 1px solid #1565C0;
-  padding-bottom: 12px;
-  margin-bottom: 8px;
-  font-weight: 300;
-  margin-bottom: 20px;
+  font-weight: bold;
+  padding-bottom: 20px;
+  border-bottom: 3px solid #BF360C;
 }
 .mainpage h2{
   font-size: 18px;
@@ -110,24 +107,23 @@
   font-size: 18px;
   margin-right: 10px;
 }
-.mainpage .yearRow{
+.mainpage .volumeRow{
   margin: 30px 0 0 0;
-  box-shadow: 0 1px 2px rgba(34, 25, 25, 0.4);
   line-height: 1.5;
   min-height: 30px;
   justify-content: space-around;
 }
-.mainpage .yearRow .year{
+.mainpage .volumeRow .volume{
   font-size: 20px;
   padding: 10px;
   min-width: 80px;
   text-align: center;
+  box-shadow: 0 1px 15px rgba(0,0,0,0.1);
+  border-radius: 5px;
 }
-.mainpage .yearRow .year:hover, .yearRow .active{
-  background-color: #EEE;
-  border-radius: 10px 10px 0 0;
+.mainpage .volumeRow .volume:hover, .volumeRow .active{
+  box-shadow: 0 1px 20px rgba(0,0,0,0.15);
   cursor: pointer;
-  box-shadow: 0px -1px 2px rgba(34, 25, 25, 0.4);
 }
 .mainpage .issueHolder{
   margin: 0px auto 0 auto;
@@ -161,11 +157,11 @@
 /*Search styles*/
 .mainpage .searchForm {
   margin-top: 64px;
-  font-family: 'Sanskrit2003', sans-serif;
+  font-family: 'Vanivilas', sans-serif;
 }
 /*Angular styles for forms*/
 mat-form-field.mat-form-field{
-  font-family: 'Sanskrit2003' !important;
+  font-family: 'Vanivilas' !important;
   font-size: 18px !important;
   line-height: 24px !important;
   padding-left: 20px;
@@ -231,7 +227,7 @@ mat-label {
   height: 5px;
 }
 .mainpage p, .mainpage blockquote, .mainpage dl, .mainpage ul, .mainpage ol, .archiveIcon{
-  font-family: 'Sanskrit2003', sans-serif;
+  font-family: 'Vanivilas', sans-serif;
   margin-bottom: 20px;
   font-weight: 300;
   color: #333;
@@ -323,7 +319,7 @@ mat-label {
 a.goBack{
   cursor: pointer;
   color: #1565C0 !important;
-  font-family: 'Sanskrit2003', sans-serif;
+  font-family: 'Vanivilas', sans-serif;
 }
 
 

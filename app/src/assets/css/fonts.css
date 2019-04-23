@@ -1,8 +1,14 @@
 @font-face {
-  font-family: 'Sanskrit2003';
+  font-family: 'Vanivilas';
   font-style: normal;
   font-weight: 100;
-  src: local('Sanskrit2003'), url('fonts/Sanskrit2003.ttf') format('truetype');
+  src: local('Vanivilas'), url('fonts/vanivilas/Adisila.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Vanivilas';
+  font-style: normal;
+  font-weight: bold;
+  src: local('Vanivilas'), url('fonts/vanivilas/AdisilaBold.ttf') format('truetype');
 }
 @font-face {
   font-family: 'Lato';

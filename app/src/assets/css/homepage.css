@@ -4,14 +4,14 @@
   margin-top: -5px;
 }
 .homepage{
-  font-family: 'Sanskrit2003', sans-serif;
+  font-family: 'Vanivilas', sans-serif;
 }
 .homepage .intro .titlegroup{
   padding: 200px 50px;
 }
 .homepage .intro .titlegroup{
   text-align: center;
-  font-family: 'Sanskrit2003', serif;
+  font-family: 'Vanivilas', serif;
   color: #FFF8E1;
 }
 .homepage .intro .title{
@@ -37,15 +37,15 @@
   margin-top: 90px;
 }
 .homepage .about p{
-  font-size: 20px;
-  font-family: 'Sanskrit2003', sans-serif;
+  font-size: 28px;
+  font-family: 'Vanivilas', sans-serif;
   color: #444;
   line-height: 40px;
   font-weight: 300;
 }
 .homepage .archive{
   margin: 80px 0 20px 0;
-  font-family: 'Sanskrit2003', serif;
+  font-family: 'Vanivilas', serif;
 }
 .homepage img.shadow{
   box-shadow: 0 1px 15px rgba(0,0,0,.1);
@@ -94,7 +94,7 @@
 }
 .homepage .prefaceTab {
   color: #444;
-  font-family: 'Sanskrit2003', serif;
+  font-family: 'Vanivilas', serif;
   padding: 0 15px;
   text-align: center;
 }
@@ -121,7 +121,7 @@
 }
 .homepage .prefaceTabsContent p{
   font-size: 16px;
-  font-family: 'Sanskrit2003', sans-serif;
+  font-family: 'Vanivilas', sans-serif;
   color: #444;
   line-height: 32px;
   font-weight: 300;

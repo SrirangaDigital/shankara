@@ -17,7 +17,7 @@ import { AuthorsComponent } from './authors/authors.component';
 import { TranslatorsComponent } from './translators/translators.component';
 import { FeatureComponent } from './feature/feature.component';
 import { SeriesComponent } from './series/series.component';
-import { YearsComponent } from './years/years.component';
+import { VolumesComponent } from './volumes/volumes.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { PageComponent } from './page/page.component';
@@ -43,7 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TranslatorsComponent,
     FeatureComponent,
     SeriesComponent,
-    YearsComponent,
+    VolumesComponent,
     SearchComponent,
     SearchResultsComponent,
     PageComponent,

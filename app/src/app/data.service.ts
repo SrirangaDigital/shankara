@@ -17,6 +17,12 @@ export class DataService {
 	result:any;
 	constructor(private _http: Http) { }
 
+	getVolumes() {
+	
+		return this._http.get("http://127.0.0.1:3000/api/volumes")
+			.map(result => this.result = result.json());
+	}
+
 	getArticles(filter) {
 		
 		let params = new URLSearchParams();
@@ -84,9 +90,9 @@ export class DataService {
 			.map(result => this.result = result.json());
 	}
 
-	getYearsList() {
+	getVolumesList() {
 	
-		return this._http.get("http://127.0.0.1:3000/api/distinct/year")
+		return this._http.get("http://127.0.0.1:3000/api/distinct/volume")
 			.map(result => this.result = result.json());
 	}
 
