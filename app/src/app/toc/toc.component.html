@@ -1,0 +1,17 @@
+<div *ngFor="let volume of volumes" class="container maincontainer">
+  <div class="row justify-content-center">
+    <div class="col-md-6 mainpage">
+      <h1>{{ volume.volume | rlzero | toDevanagari }}. {{ volume.title }}</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 mainpage mb-large">
+      <div class="toc row">
+        <div class="col-2 volume">
+            <img class="img-fluid" src="{{ 'assets/covers/inner/' + volume.volume + '.jpg' }}" >
+        </div>
+        <div class="col-10" [innerHTML]="volume.toc | linkPDF:volume.volume:basePdfUrl"></div>
+      </div>
+    </div>
+  </div>
+</div>

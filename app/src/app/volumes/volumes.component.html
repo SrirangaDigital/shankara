@@ -8,7 +8,7 @@
     <div class="col-md-12 mainpage mb-large">
       <div *ngFor="let volumeLoop of volumeLoopVar; let iy = index" class="volumeRow row justify-content-around">
       	<div *ngFor="let volume of volumes | slice: (iy * volumesPerRow) : volumesPerRow * (iy + 1); let jy = index" [ngClass]="{'col-2': true, 'volume': true, 'active': volumeDisplayed[volume]}">
-          <a title="{{ 'संपुट ' + volume.volume }}" routerLink="/articles/toc" [queryParams]="{volume: volume.volume}">
+          <a title="{{ 'संपुट ' + volume.volume }}" routerLink="/toc" [queryParams]="{volume: volume.volume}">
             <img class="img-fluid" src="{{ 'assets/covers/inner/' + volume.volume + '.jpg' }}" >{{ volume.title }}
           </a>
         </div>

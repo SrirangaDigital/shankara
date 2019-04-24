@@ -13,7 +13,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 // Components
 import { ArticlesComponent } from './articles/articles.component';
-import { AuthorsComponent } from './authors/authors.component';
+import { TocComponent } from './toc/toc.component';
 import { TranslatorsComponent } from './translators/translators.component';
 import { FeatureComponent } from './feature/feature.component';
 import { SeriesComponent } from './series/series.component';
@@ -27,6 +27,8 @@ import { CoversComponent } from './covers/covers.component';
 import { RlzeroPipe } from './custom-pipes/rlzero.pipe';
 import { ToDevanagariPipe } from './custom-pipes/toDevanagari.pipe';
 import { MonthToDevanagariPipe } from './custom-pipes/monthToDevanagari.pipe';
+import { SafePipe } from './custom-pipes/safe.pipe';
+import { LinkPDFPipe } from './custom-pipes/linkPDF.pipe';
 
 // Viewer
 import { ViewerDirectiveModule } from './viewer.directive';
@@ -39,7 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   declarations: [
     AppComponent,
     ArticlesComponent,
-    AuthorsComponent,
+    TocComponent,
     TranslatorsComponent,
     FeatureComponent,
     SeriesComponent,
@@ -50,6 +52,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     RlzeroPipe,
     ToDevanagariPipe,
     MonthToDevanagariPipe,
+    SafePipe,
+    LinkPDFPipe,
     CoversComponent
   ],
   imports: [

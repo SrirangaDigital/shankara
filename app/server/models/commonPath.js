@@ -3,8 +3,8 @@ var fs = require('fs');
 
 var commonPath = '';
 
-var commomFolderName = 'vvjcommon';
-var discName = 'VIVEK-JYOTI';
+var commomFolderName = 'sgcommon';
+var discName = 'VANI-VILASA';
 
 switch(os.platform()) {
 
@@ -22,7 +22,8 @@ switch(os.platform()) {
 
     case "linux":
 
-		commonPath = '/media/' + os.userInfo().username + '/' + discName + '/' + commomFolderName;
+        commonPath = '/media/' + os.userInfo().username + '/' + discName + '/' + commomFolderName;
+		commonPath = '/home/sriranga/Documents/node/shankara/release-builds/sgcommon';
         break;
 
     case "darwin":

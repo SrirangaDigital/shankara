@@ -1,11 +1,11 @@
 .mainpage{
   font-family: 'Vanivilas', sans-serif;
   font-size: 18px;
+  color: rgba(0, 0, 0, 0.7) !important;
 }
 .mainpage h1{
   text-align: center;
   font-size: 48px;
-  color: #333;
   font-weight: bold;
   padding-bottom: 20px;
   border-bottom: 3px solid #BF360C;
@@ -113,13 +113,28 @@
   min-height: 30px;
   justify-content: space-around;
 }
-.mainpage .volumeRow .volume{
+.mainpage .volumeRow .volume,
+.mainpage .toc .volume{
   font-size: 20px;
   padding: 10px;
   min-width: 80px;
   text-align: center;
   box-shadow: 0 1px 15px rgba(0,0,0,0.1);
   border-radius: 5px;
+}
+.mainpage .toc{
+  margin-top: 48px;
+  padding-left: 48px;
+  font-size: 24px;
+  line-height: 36px !important;
+  color: #777 !important;
+}
+.mainpage .toc li{
+  margin-top: 12px;
+}
+.mainpage .toc a{
+  font-size: 24px;
+  color: #777 !important;
 }
 .mainpage .volumeRow .volume:hover, .volumeRow .active{
   box-shadow: 0 1px 20px rgba(0,0,0,0.15);

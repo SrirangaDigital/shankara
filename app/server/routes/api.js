@@ -24,7 +24,30 @@ router.get('/volumes', function(req, res){
 	});
 });
 
+router.get('/toc', function(req, res){
 
+	// Remove keys with null values
+	req.query = _und.pick(req.query, _und.identity);
+
+
+	var query = {};
+	_und.each(req.query, function(value, key) {
+
+		// Values beginning with an '@' are treated as regular expressions
+		query[key] = (value.match(/^@/)) ? new RegExp(value.replace('@', ''), 'i') : value;
+	});
+	
+	var sort = {};
+	sort['volume'] = 1;
+
+	Volume.find(query).sort(sort).exec(function(err, result){
+
+		if(err)			
+			console.log(err);
+		else 
+			return res.json(result);
+	});
+});
 
 
 
