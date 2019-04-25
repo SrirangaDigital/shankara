@@ -9,6 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 
 <script src="js/flipbook.min.js"></script>
+<script src="js/arrive.min.js"></script>
 
 <script type="text/javascript">
 
@@ -19,6 +20,7 @@
     	console.log(url);
         $("#container").flipBook({
             pdfUrl: url,
+            lightBoxOpened: true,
 			deeplinking:{
 				enabled:true,
 				prefix:""
@@ -31,6 +33,17 @@
         });
 
     })
+
+    var search = getUrlParameter('search');
+
+    if(search !== undefined){
+        $(document).arrive(".fas.fa-search.flipbook-icon-fa.flipbook-menu-btn", function() {
+
+            $(this).trigger('click');
+            $('#findInput').val('यदि').trigger('keyup');
+        });
+    }
+
     function getUrlParameter(sParam) {
 
         var sPageURL = window.location.search.substring(1);
