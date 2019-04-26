@@ -1,182 +1,182 @@
 [
 	{
-		"title":"ब्रह्मसूत्र भाष्यम् ",
+		"title":"ब्रह्मसूत्रभाष्यम् \n(अध्यायः १)",
 		"title_roman":"Brahmasutra Bhasya",
 		"volume":"001",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_001"
 	},
 	{
-		"title":"ब्रह्मसूत्र भाष्यम् ",
+		"title":"ब्रह्मसूत्रभाष्यम् \n(अध्यायाः २-३)",
 		"title_roman":"Brahmasutra Bhasya",
 		"volume":"002",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_002"
 	},
 	{
-		"title":"ब्रह्मसूत्र भाष्यम् ",
+		"title":"ब्रह्मसूत्रभाष्यम् \n(अध्यायः ३-४)",
 		"title_roman":"Brahmasutra Bhasya",
 		"volume":"003",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_003"
 	},
 	{
-		"title":"उपनिषद् भाष्यम् ",
+		"title":"उपनिषद्भाष्यम् \n(ईश, केन, कठ, प्रश्न)",
 		"title_roman":"Upanishad Bhashya",
 		"volume":"004",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_004"
 	},
 	{
-		"title":"उपनिषद् भाष्यम् ",
+		"title":"उपनिषद्भाष्यम् \n(मुण्डक, माण्डूक्य, ऐतरेय)",
 		"title_roman":"Upanishad Bhashya",
 		"volume":"005",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_005"
 	},
 	{
-		"title":"तैत्तिरीयोपनिषद्भाष्यम् ",
+		"title":"उपनिषद्भाष्यम् \n(तैत्तिरीय, छान्दोग्य)",
 		"title_roman":"Taittiriyopanishad Bhashya",
 		"volume":"006",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_006"
 	},
 	{
-		"title":"छान्ढोग्योपनिषद्भाष्यम् ",
+		"title":"छान्दोग्योपनिषद्भाष्यम्",
 		"title_roman":"Chhandogyopanishad Bhashya",
 		"volume":"007",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_007"
 	},
 	{
-		"title":"बृहदारण्यकोपनिषद्भाष्यम् ",
+		"title":"बृहदारण्यकोपनिषद्भाष्यम् \n(अध्यायाः १-२)",
 		"title_roman":"Brihadaranyakopanishad Bhashya",
 		"volume":"008",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_008"
 	},
 	{
-		"title":"बृहदारण्यकोपनिषद्भाष्यम् ",
+		"title":"बृहदारण्यकोपनिषद्भाष्यम् \n(अध्यायाः ३-४)",
 		"title_roman":"Brihadaranyakopanishad Bhashya",
 		"volume":"009",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_009"
 	},
 	{
-		"title":"नृसिंहपूर्वतापनीयोपनिशद्भाष्यम्, ललितात्रिशतीभाष्यम्",
+		"title":"नृसिंहपूर्वतापनीयोपनिशद्भाष्यम्, \nललितात्रिशतीभाष्यम्",
 		"title_roman":"Nirsimhapurvatapani Bhashya and Lalitatrisati Bhashya",
 		"volume":"010",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_010"
 	},
 	{
-		"title":"श्री भगवद्गीताभाष्यम् ",
+		"title":"श्रीमद्भगवद्गीताभाष्यम् \n(अध्यायाः १-९)",
 		"title_roman":"The Bhagavad Gita Bhashya",
 		"volume":"011",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_011"
 	},
 	{
-		"title":"श्री भगवद्गीताभाष्यम् ",
+		"title":"श्रीमद्भगवद्गीताभाष्यम् \n(अध्यायाः १०-१८)",
 		"title_roman":"The Bhagavad Gita Bhashya",
 		"volume":"012",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_012"
 	},
 	{
-		"title":"विष्णुसहस्रनामस्तोत्रभाष्यम्, सनत्सुजातीयभाष्यम् ",
+		"title":"विष्णुसहस्रनामभाष्यम्, \nसनत्सुजातीयभाष्यम्",
 		"title_roman":"Vishnusahasranama Bhashya, Sanathsujatiya Bhashya",
 		"volume":"013",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_013"
 	},
 	{
-		"title":"विवेकचूडामणिः, उपदेशसहस्री",
+		"title":"विवेकचूडामणिः, \nउपदेशसहस्री",
 		"title_roman":"Vivekachudamani, Upadesasahasri",
 		"volume":"014",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_014"
 	},
 	{
-		"title":"प्रकरण प्रबन्धावलिः",
+		"title":"प्रकरण प्रबन्धावलिः - १",
 		"title_roman":"Miscellaneous Prakaranas",
 		"volume":"015",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_015"
 	},
 	{
-		"title":"प्रकरण प्रबन्धावलिः",
+		"title":"प्रकरण प्रबन्धावलिः - २",
 		"title_roman":"Miscellaneous Prakaranas",
 		"volume":"016",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_016"
 	},
 	{
-		"title":"स्तोत्राणि",
+		"title":"स्तोत्राणि - १",
 		"title_roman":"Stotras",
 		"volume":"017",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_017"
 	},
 	{
-		"title":"स्तोत्राणि",
+		"title":"स्तोत्राणि - २",
 		"title_roman":"Stotras",
 		"volume":"018",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_018"
 	},
 	{
-		"title":"प्रपञ्चसारः",
+		"title":"प्रपञ्चसारः \n(पटलाः १-१९)",
 		"title_roman":"Prapanchasara",
 		"volume":"019",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_019"
 	},
 	{
-		"title":"प्रपञ्चसारः",
+		"title":"प्रपञ्चसारः \n(पटलाः २०-३३)",
 		"title_roman":"Prapanchasara",
 		"volume":"020",
 		"part":"01",
 		"pages":366,
-		"year":"1963",
+		"year":"1908",
 		"id":"sg_020"
 	}
 ]

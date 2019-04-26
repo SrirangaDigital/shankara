@@ -25,6 +25,7 @@ import { MonthToDevanagariPipe } from './custom-pipes/monthToDevanagari.pipe';
 import { SafePipe } from './custom-pipes/safe.pipe';
 import { LinkPDFPipe } from './custom-pipes/linkPDF.pipe';
 import { SafeHTMLPipe } from './custom-pipes/safeHTML.pipe';
+import { StrReplacePipe } from './custom-pipes/strReplace.pipe';
 
 // Viewer
 import { ViewerDirectiveModule } from './viewer.directive';
@@ -46,7 +47,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MonthToDevanagariPipe,
     SafePipe,
     LinkPDFPipe,
-    SafeHTMLPipe
+    SafeHTMLPipe,
+    StrReplacePipe
   ],
   imports: [
     BrowserModule,

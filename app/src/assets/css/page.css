@@ -210,6 +210,8 @@ mat-label {
 .mainpage .searchForm input.form-control[type="reset"]{
   border-radius: 0;
   cursor: pointer;
+  font-size: 21px;
+  padding-bottom: 13px;
 }
 .mainpage .searchForm input.form-control[type="submit"]:focus, 
 .mainpage .searchForm input.form-control[type="submit"]:hover {
