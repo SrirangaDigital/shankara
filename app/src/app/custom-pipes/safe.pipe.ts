@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer} from '@angular/platform-browser';
 
-// Custom Pipe to safe urls
+// Custom Pipe to safe html injection
 
 
 @Pipe({name: 'safe'})

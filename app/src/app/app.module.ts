@@ -29,6 +29,7 @@ import { ToDevanagariPipe } from './custom-pipes/toDevanagari.pipe';
 import { MonthToDevanagariPipe } from './custom-pipes/monthToDevanagari.pipe';
 import { SafePipe } from './custom-pipes/safe.pipe';
 import { LinkPDFPipe } from './custom-pipes/linkPDF.pipe';
+import { SafeHTMLPipe } from './custom-pipes/safeHTML.pipe';
 
 // Viewer
 import { ViewerDirectiveModule } from './viewer.directive';
@@ -54,6 +55,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MonthToDevanagariPipe,
     SafePipe,
     LinkPDFPipe,
+    SafeHTMLPipe,
     CoversComponent
   ],
   imports: [

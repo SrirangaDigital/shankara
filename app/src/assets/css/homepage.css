@@ -34,13 +34,18 @@
   border-radius: 0;  
 }
 .homepage .about {
-  margin-top: 90px;
+  margin-top: 40px;
 }
 .homepage .about p{
-  font-size: 28px;
-  font-family: 'Vanivilas', sans-serif;
+  font-size: 18px;
+  /*font-family: 'Vanivilas', sans-serif;*/
   color: #444;
-  line-height: 40px;
+  line-height: 32px;
+  font-weight: 300;
+}
+.homepage .about p.big{
+  font-size: 24px;
+  line-height: 48px;
   font-weight: 300;
 }
 .homepage .archive{

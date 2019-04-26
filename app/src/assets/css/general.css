@@ -19,3 +19,12 @@ body{
 	padding-top: 72px;
 	padding-bottom: 100px;
 }
+.hide{
+	display: none !important;
+}
+a.red{
+  color: #D84315 !important;
+}
+.red{
+  color: #D84315 !important;
+}

@@ -87,6 +87,8 @@ jQuery(document).ready(function($){
     $(document).on('click', ".triggerClick a", function() {
 
     	var target = $(this).attr('class');
-    	$('#cd-sec-nav .' + target)[0].click();
+    	target = target.replace(/ .*/, '');
+    	console.log(target);
+    	$('#navbarNav .' + target)[0].click();
     });
 });
