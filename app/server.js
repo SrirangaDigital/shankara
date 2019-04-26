@@ -1,4 +1,4 @@
-// module.exports = () => {
+module.exports = () => {
 
 	const express = require('express');
 	const bodyParser = require('body-parser');
@@ -42,4 +42,4 @@
 	const server = http.createServer(app);
 
 	server.listen(port, () => console.log(`Running on localhost:${port}`));
-// }
+}
