@@ -45,14 +45,13 @@
   margin: 0 8px;
 }
 .mainpage .full-width-card h4.publication-details{
-  font-size: 16px;
+  font-size: 21px;
   font-weight: 300;
 }
 .mainpage .full-width-card h2.title{
   font-size: 24px;
   color: #333;
   font-weight: 300;
-  padding-top: 20px;
 }
 .mainpage .full-width-card h3.author:empty,
 .mainpage .full-width-card h3.translator:empty{
@@ -390,6 +389,7 @@ a.goBack{
 
 .feng{
   font-family: 'Lato', sans-serif !important;
+  font-weight: 300;
 }
 .fsan{
   font-family: 'Vanivilas', sans-serif !important;

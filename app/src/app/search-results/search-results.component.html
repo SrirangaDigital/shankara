@@ -8,12 +8,12 @@
     <div class="col-md-12 mainpage">
       <progress *ngIf="!searchingComplete" class="search-progress" [value]="progress" [max]="maxVolume"></progress>
       <!-- <h5 *ngIf="numresults > 0" class="num-results">परिणामों की संख्या : <span>{{ numresults.toString() | toDevanagari }}</span></h5> -->
-      <h5 *ngIf="numresults == 0 && searchingComplete" class="no-results">No results!</h5>
+      <h5 *ngIf="numresults == 0 && searchingComplete" class="no-results feng">No results!</h5>
       <div *ngFor="let article of articles">
         <div *ngIf="article?.length != 0" class="full-width-card blue-edge">
           <h4 class="publication-details">
             <span class="gray">
-              <a title="{{ 'संपुट ' + article.volume }}" routerLink="/toc" [queryParams]="{volume: article.volume}">{{ 'संपुट ' + article.volume | rlzero | toDevanagari }}</a>
+              <a title="{{ 'संपुटः ' + article.volume }}" routerLink="/toc" [queryParams]="{volume: article.volume}">{{ 'संपुटः ' + article.volume | rlzero | toDevanagari }}</a>
             </span>
           </h4>
           <h2 class="title"><a routerLink="/toc" [queryParams]="{volume: article.volume, search: this.urlParams.params.toc}" class="pdf">{{ article.title }}</a></h2>

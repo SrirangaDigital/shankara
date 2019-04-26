@@ -35,8 +35,8 @@
     })
 
     var search = decodeURIComponent(getUrlParameter('search'));
-
-    if(search !== undefined){
+    console.log(search);
+    if(search !== 'undefined'){
         $(document).arrive(".fas.fa-search.flipbook-icon-fa.flipbook-menu-btn", function() {
 
             $(this).trigger('click');

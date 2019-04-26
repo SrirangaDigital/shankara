@@ -13,9 +13,6 @@
 	// Enable CORS
 	app.use(cors())
 
-	// Bring in Models
-	let Article = require('./server/models/article');
-
 	// Body parser Middleware
 	// parse application/json
 	app.use(bodyParser.json());

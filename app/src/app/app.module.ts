@@ -12,16 +12,11 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
 // Components
-import { ArticlesComponent } from './articles/articles.component';
 import { TocComponent } from './toc/toc.component';
-import { TranslatorsComponent } from './translators/translators.component';
-import { FeatureComponent } from './feature/feature.component';
-import { SeriesComponent } from './series/series.component';
 import { VolumesComponent } from './volumes/volumes.component';
 import { SearchComponent } from './search/search.component';
 import { SearchResultsComponent } from './search-results/search-results.component';
 import { PageComponent } from './page/page.component';
-import { CoversComponent } from './covers/covers.component';
 
 // Custom Pipes
 import { RlzeroPipe } from './custom-pipes/rlzero.pipe';
@@ -41,11 +36,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
-    ArticlesComponent,
     TocComponent,
-    TranslatorsComponent,
-    FeatureComponent,
-    SeriesComponent,
     VolumesComponent,
     SearchComponent,
     SearchResultsComponent,
@@ -55,8 +46,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MonthToDevanagariPipe,
     SafePipe,
     LinkPDFPipe,
-    SafeHTMLPipe,
-    CoversComponent
+    SafeHTMLPipe
   ],
   imports: [
     BrowserModule,
