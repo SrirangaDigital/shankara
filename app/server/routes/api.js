@@ -49,7 +49,98 @@ router.get('/toc', function(req, res){
 	});
 });
 
+router.get('/search', function(req, res){
 
+	// Remove keys with null values
+	req.query = _und.pick(req.query, _und.identity);
+
+	var query = {};
+	_und.each(req.query, function(value, key) {
+
+		if(key == 'year') {
+
+			var yearBoundary = getYearBoundary(value);
+			query['year'] = {'$gte' : yearBoundary['left'], '$lte' : yearBoundary['right']};
+		}
+		else{
+
+			value = value.replace(/\s+$/, '');
+			value = value.replace(/^\s+/, '');
+
+			query[key] = new RegExp(value.replace(' ', '.*'), 'i');
+		}
+	});
+
+	if(_und.isEmpty(query)) return res.json([]);
+
+	var sort = {}; sort['volume'] = 1; sort['part'] = 1; sort['page'] = 1;
+
+	Article.find(query).sort(sort).exec(function(err, result){
+
+		if(err)			
+			console.log(err);
+		else 
+			return res.json(result);
+	});
+});
+
+router.get('/search/text/:term/:volume', function(req, res){
+
+	// Bring in SearchIndex Model
+	// Only one index is loaded at a time
+
+	var volIndex = ('000' + req.params.volume).substr(-3);
+
+	if ((parseInt(volIndex) < 0) || (parseInt(volIndex) > 56))
+		return res.json([]);
+
+	let SearchIndex = require('../models/searchIndex')(volIndex);
+	
+	let term = req.params.term;
+
+    var result = SearchIndex.search(term, {
+        fields: {
+            // title: {boost: 1, expand: true}
+            text: {boost: 1, expand: false}
+        }
+    });
+
+	return res.json(result);
+});
+
+router.get('/textSearch', function(req, res){
+
+	// Remove keys with null values
+	req.query = _und.pick(req.query, _und.identity);
+
+	var pages = [];
+
+	_und.each(req.query.id.split(';'), function(pageid) {
+
+		var pieces = pageid.replace(/sg_.*?\|/, '');
+		pages.push(pieces);
+	});
+
+	var query = {};
+
+	query['id'] = req.query.id.replace(/\|.*/, '');
+
+	if(_und.isEmpty(query)) return res.json([]);
+
+	var sort = {}; sort['volume'] = 1; sort['part'] = 1; sort['page'] = 1;
+
+	Article.find(query).sort(sort).exec(function(err, result){
+
+		if(err)			
+			console.log(err);
+		else{
+
+			result[0]['toc'] = '';
+			result[0]['pageList'] = pages;
+			return res.json(result);
+		}
+	});
+});
 
 
 
@@ -241,64 +332,6 @@ router.get('/translators', function(req, res){
 	});
 });
 
-router.get('/search', function(req, res){
-
-	// Remove keys with null values
-	req.query = _und.pick(req.query, _und.identity);
-
-	var query = {};
-	_und.each(req.query, function(value, key) {
-
-		if(key == 'year') {
-
-			var yearBoundary = getYearBoundary(value);
-			query['year'] = {'$gte' : yearBoundary['left'], '$lte' : yearBoundary['right']};
-		}
-		else{
-
-			value = value.replace(/\s+$/, '');
-			value = value.replace(/^\s+/, '');
-
-			query[key] = new RegExp(value.replace(' ', '.*'), 'i');
-		}
-	});
-
-	if(_und.isEmpty(query)) return res.json([]);
-
-	var sort = {}; sort['volume'] = 1; sort['part'] = 1; sort['page'] = 1;
-
-	Article.find(query).sort(sort).exec(function(err, result){
-
-		if(err)			
-			console.log(err);
-		else 
-			return res.json(result);
-	});
-});
-
-router.get('/search/text/:term/:volume', function(req, res){
-
-	// Bring in SearchIndex Model
-	// Only one index is loaded at a time
-
-	var volIndex = ('000' + req.params.volume).substr(-3);
-
-	if ((parseInt(volIndex) < 0) || (parseInt(volIndex) > 56))
-		return res.json([]);
-
-	let SearchIndex = require('../models/searchIndex')(volIndex);
-	
-	let term = req.params.term;
-
-    var result = SearchIndex.search(term, {
-        fields: {
-            // title: {boost: 1, expand: true}
-            text: {boost: 1, expand: false}
-        }
-    });
-
-	return res.json(result);
-});
 
 function getDistinctParams(res, query, param) {
 

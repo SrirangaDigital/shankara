@@ -34,13 +34,13 @@
 
     })
 
-    var search = getUrlParameter('search');
+    var search = decodeURIComponent(getUrlParameter('search'));
 
     if(search !== undefined){
         $(document).arrive(".fas.fa-search.flipbook-icon-fa.flipbook-menu-btn", function() {
 
             $(this).trigger('click');
-            $('#findInput').val('यदि').trigger('keyup');
+            $('#findInput').val(search).trigger('keyup');
         });
     }
 

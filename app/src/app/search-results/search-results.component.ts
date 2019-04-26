@@ -20,10 +20,10 @@ export class SearchResultsComponent implements OnInit {
   articleListType: String;
   basePdfUrl: String;
   fullTextParam: String = '';
-  maxVolume: number = 56;
+  maxVolume: number = 20;
   currentVolume: number = 0;
   currentPointer:number = 1;
-  progress:number = 3;
+  progress:number = 1;
 
   timerInterval:any;
   searchingComplete:boolean = false;
@@ -67,7 +67,7 @@ export class SearchResultsComponent implements OnInit {
 
         this.articles = this.articles.concat(res[0]);
         this.numresults = this.articles.length;
-        this.basePdfUrl = 'http://127.0.0.1:3000/pdfjs/web/viewer.html?file=../../Volumes/';
+        this.basePdfUrl = 'http://127.0.0.1:3000/flipbook/pdf_flipbook.html?file=../Volumes/';
         if(this.currentVolume == this.maxVolume) this.searchingComplete = true;
       });
   }
@@ -79,7 +79,7 @@ export class SearchResultsComponent implements OnInit {
 
         this.articles = res;
         this.numresults = this.articles.length;
-        this.basePdfUrl = 'http://127.0.0.1:3000/pdfjs/web/viewer.html?file=../../Volumes/';
+        this.basePdfUrl = 'http://127.0.0.1:3000/flipbook/pdf_flipbook.html?file=../Volumes/';
         this.searchingComplete = true;
     });
   }

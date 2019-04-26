@@ -1,35 +1,30 @@
-<div class="container">
+<div class="container maincontainer">
+  <div class="row justify-content-center">
+    <div class="col-md-6 mainpage">
+      <h1>अन्वेषणम् - फलितांशः</h1>
+    </div>
+  </div>
   <div class="row">
-    <div class="col-md"></div>
-    <div class="col-md-10 mainpage">
-
-      <h1>अंक संग्रह : खोज परिणाम</h1>
+    <div class="col-md-12 mainpage">
       <progress *ngIf="!searchingComplete" class="search-progress" [value]="progress" [max]="maxVolume"></progress>
-      <h5 *ngIf="numresults > 0" class="num-results">परिणामों की संख्या : <span>{{ numresults.toString() | toDevanagari }}</span></h5>
+      <!-- <h5 *ngIf="numresults > 0" class="num-results">परिणामों की संख्या : <span>{{ numresults.toString() | toDevanagari }}</span></h5> -->
       <h5 *ngIf="numresults == 0 && searchingComplete" class="no-results">No results!</h5>
       <div *ngFor="let article of articles">
         <div *ngIf="article?.length != 0" class="full-width-card blue-edge">
           <h4 class="publication-details">
-            <span *ngIf="article.feature" class="red"><a routerLink="/articles/feature" [queryParams]="{feature: article.feature}"><i class="fa fa-tags"></i> {{ article.feature }}</a></span>
-            <span *ngIf="article.series" class="red"><a routerLink="/articles/series" [queryParams]="{series: article.series}"><i class="fa fa-link"></i> {{ article.series }}</a></span>
-            <span class="gray"><a routerLink="/articles/toc" [queryParams]="{volume: article.volume, part: article.part}">{{ article.date | monthToDevanagari }} {{ article.year | toDevanagari }} (वर्ष {{ article.volume | rlzero | toDevanagari}}, अंक {{ article.part | rlzero | toDevanagari}})</a></span>
+            <span class="gray">
+              <a title="{{ 'संपुट ' + article.volume }}" routerLink="/toc" [queryParams]="{volume: article.volume}">{{ 'संपुट ' + article.volume | rlzero | toDevanagari }}</a>
+            </span>
           </h4>
-          <h2 class="title">
-            <p *ngIf="article.series" class="serial-no red">क्रमांक {{ article.tnum | rlzero | toDevanagari}}</p>
-            <a routerLink="/toc" [queryParams]="{volume: article.volume, search: this.urlParams.params.toc}" class="pdf">{{ article.title }}</a>
-          </h2>
-          <h3 class="author by">
-            <span *ngIf="article.authornames != ''">
-              <span *ngFor="let author of article.authornames"><a routerLink="/articles/author" [queryParams]="{authornames: author}">{{ author }}</a></span>
-            </span>
-            <span *ngIf="article.translatornames != ''">
-              अनुवाद - 
-              <span *ngFor="let translator of article.translatornames"><a routerLink="/articles/translator" [queryParams]="{translatornames: translator}">{{ translator }}</a></span>
-            </span>
-          </h3>
+          <h2 class="title"><a routerLink="/toc" [queryParams]="{volume: article.volume, search: this.urlParams.params.toc}" class="pdf">{{ article.title }}</a></h2>
+          <div *ngIf="fullTextParam">
+            <em>pages:</em>&nbsp;
+            <span class="mr-2" *ngFor="let page of article.pageList">
+              <a target="_blank" [href]="basePdfUrl + article.volume + '.pdf&search=' + fullTextParam + '#' + page" class="pdf">{{ page }}</a>
+            </span>&nbsp;
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md"></div>
   </div>
 </div>

@@ -32,6 +32,53 @@ export class DataService {
 			.map(result => this.result = result.json());
 	}
 
+	getTextSearchResultsByVolume(filter, volume): Observable<any> {
+
+		let params = new URLSearchParams();
+		for(let key in filter.params) if (key != 'type') params.set(key, filter.params[key])
+
+		let searchResult = [];
+		params.delete('fulltext');
+		return this._http.get("http://127.0.0.1:3000/api/search/text/" + filter.params['fulltext'] + '/' + volume)
+			.map(res => res.json()) // convert to object[]
+			.map(res => res.map(fulltextResult => fulltextResult.ref)) // get all pageids
+			.mergeMap(pageids => {
+
+				let searchResult = [];
+
+				// let titleids = pageids.map((id) => id.split('|')[0]);
+				// let relpageids = pageids.map((id) => id.split('|')[1]);
+
+				let titleidFilter = pageids.join(';');
+				let req;
+
+				if(titleidFilter) {
+
+					req = this._http.get("http://127.0.0.1:3000/api/textSearch?&id=" + titleidFilter);
+				}
+				else
+					req = Observable.of({});
+
+				searchResult.push(req);
+				return Observable.forkJoin(searchResult);
+			})
+			.map(res => { // we have array of Response Object
+
+				return res.map((x:Response) => {
+					
+					if(_underscore.isEmpty(x)) return [];
+					return x.json();
+				}); // Array.map not Observable map operator
+			});
+	}
+
+	getStaticContent(fileName) {
+
+		console.log(fileName);
+		return this._http.get(fileName)
+			.map(result => this.result = result.text());
+	}
+
 
 
 
@@ -122,48 +169,4 @@ export class DataService {
 		return this._http.get("http://127.0.0.1:3000/api/parts?year=" + year)
 			.map(result => this.result = result.json());
 	}
-
-	getTextSearchResultsByVolume(filter, volume): Observable<any> {
-
-		let params = new URLSearchParams();
-		for(let key in filter.params) if (key != 'type') params.set(key, filter.params[key])
-
-		let searchResult = [];
-		params.delete('fulltext');
-		return this._http.get("http://127.0.0.1:3000/api/search/text/" + filter.params['fulltext'] + '/' + volume)
-			.map(res => res.json()) // convert to object[]
-			.map(res => res.map(fulltextResult => fulltextResult.ref)) // get all pageids
-			.mergeMap(pageids => {
-
-				let searchResult = [];
-
-				let titleids = pageids.map((id) => id.split('|')[0]);
-				let titleidFilter = titleids.join('|');
-				let req;
-
-				if(titleidFilter)
-					req = this._http.get("http://127.0.0.1:3000/api/search?" + params.toString() + "&titleid=" + titleidFilter);
-				else
-					req = Observable.of({});
-
-				searchResult.push(req);
-				return Observable.forkJoin(searchResult);
-			})
-			.map(res => { // we have array of Response Object
-
-				return res.map((x:Response) => {
-					
-					if(_underscore.isEmpty(x)) return [];
-					return x.json();
-				}); // Array.map not Observable map operator
-			});
-	}
-
-	getStaticContent(fileName) {
-
-		console.log(fileName);
-		return this._http.get(fileName)
-			.map(result => this.result = result.text());
-	}
-
 }

@@ -16,16 +16,6 @@ import { DataService } from '../data.service';
  // Load the Google Transliterate API
 declare let google: any;
 
-export interface Author {
-  author: string;
-  roman: string;
-}
-
-export interface Translator {
-  translator: string;
-  roman: string;
-}
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
