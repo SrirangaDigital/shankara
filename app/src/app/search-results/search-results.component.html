@@ -16,7 +16,7 @@
           </h4>
           <h2 class="title">
             <p *ngIf="article.series" class="serial-no red">क्रमांक {{ article.tnum | rlzero | toDevanagari}}</p>
-            <a target="_blank" [href]="basePdfUrl + article.volume + '/' + article.part + '/index.pdf#page=' + article.page + '&search=' + fullTextParam" class="pdf">{{ article.title }}</a>
+            <a routerLink="/toc" [queryParams]="{volume: article.volume, search: this.urlParams.params.toc}" class="pdf">{{ article.title }}</a>
           </h2>
           <h3 class="author by">
             <span *ngIf="article.authornames != ''">

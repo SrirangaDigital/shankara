@@ -10,7 +10,7 @@
         <div class="col-2 volume">
             <img class="img-fluid" src="{{ 'assets/covers/inner/' + volume.volume + '.jpg' }}" >
         </div>
-        <div class="col-10" [innerHTML]="volume.toc | linkPDF:volume.volume:basePdfUrl"></div>
+        <div class="col-10" [innerHTML]="volume.toc | linkPDF:volume.volume:basePdfUrl:urlParams.params.search"></div>
       </div>
     </div>
   </div>

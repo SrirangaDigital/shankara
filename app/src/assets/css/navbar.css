@@ -18,22 +18,24 @@
   color: #3d3536;
   display: inline-block;
   text-transform: uppercase;
-  font-size: 20px;
-  padding: 8px 14px;
-  line-height: 18px;
+  font-size: 24px;
+  padding: 8px 14px 16px 14px;
+  line-height: 36px;
   cursor: pointer;
 }
 #navbarNav .navbar-nav>li>a:focus, #navbarNav .navbar-nav>li>a:hover{
-	color: #1565C0;
+  color: #1565C0;
+}
+#navbarNav .title{
+	font-size: 48px;
 }
 .navbar-text {
-  color: #1565C0 !important;
+  color: #BF360C !important;
   text-transform: uppercase;
   font-weight: 400;
   font-size: 32px;
   line-height: 32px;
-  padding-top: 10px;
-  padding-bottom: 0px;
+  padding-bottom: 16px;
 }
 .navbar-text small{
   font-weight: normal;

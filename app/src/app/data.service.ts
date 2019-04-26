@@ -26,7 +26,7 @@ export class DataService {
 	getToc(filter) {
 		
 		let params = new URLSearchParams();
-		for(let key in filter.params) if (key != 'type') params.set(key, filter.params[key])
+		for(let key in filter.params) if (key != 'search') params.set(key, filter.params[key])
 
 		return this._http.get("http://127.0.0.1:3000/api/toc?" + params.toString())
 			.map(result => this.result = result.json());

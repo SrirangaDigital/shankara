@@ -1,4 +1,5 @@
 jQuery(document).ready(function($){
+	
 	//open-close submenu on mobile
 	$('.cd-main-nav').on('click', function(event){
 		if($(event.target).is('.cd-main-nav')) $(this).children('ul').toggleClass('is-visible');
@@ -40,7 +41,6 @@ jQuery(document).ready(function($){
 			$('.scroll-top').fadeIn(100);
 		} else if ($(window).scrollTop() <= offset) {
 
-			console.log('Open');
 			$('.scroll-top').fadeOut(100);
 			//check if the menu is open when scrolling up
 			if( mainNavigation.hasClass('is-visible')  && !$('html').hasClass('no-csstransitions') ) {

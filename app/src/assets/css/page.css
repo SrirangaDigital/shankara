@@ -332,6 +332,9 @@ mat-label {
 
 /*Other styles*/
 a.goBack{
+  display: block;
+  margin-top: 10px;
+  font-size: 21px;
   cursor: pointer;
   color: #1565C0 !important;
   font-family: 'Vanivilas', sans-serif;
@@ -351,7 +354,7 @@ a.goBack{
   margin-right: 0px;
 }
 .keys{
-  font-size: 20px;
+  font-size: 21px;
   width: 36px;
   height: 36px;
   float: left;

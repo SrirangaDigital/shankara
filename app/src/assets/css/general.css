@@ -6,6 +6,9 @@ body, html {
 body{
   /*margin-top: 116px;*/
 }
+.highlight{
+	background-color: yellow;
+}
 .clear-paddings{
 	padding: 0;
 }
