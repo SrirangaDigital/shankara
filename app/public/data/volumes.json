@@ -1,7 +1,7 @@
 [
 	{
 		"title":"ब्रह्मसूत्रभाष्यम् \n(अध्यायः १)",
-		"title_roman":"Brahmasutra Bhasya",
+		"title_roman":"Brahmasūtrabhāṣyam \n(Adhyāyaḥ 1)",
 		"volume":"001",
 		"part":"01",
 		"pages":366,
@@ -10,7 +10,7 @@
 	},
 	{
 		"title":"ब्रह्मसूत्रभाष्यम् \n(अध्यायाः २-३)",
-		"title_roman":"Brahmasutra Bhasya",
+		"title_roman":"Brahmasūtrabhāṣyam \n(Adhyāyāḥ 2-3)",
 		"volume":"002",
 		"part":"01",
 		"pages":366,
@@ -19,7 +19,7 @@
 	},
 	{
 		"title":"ब्रह्मसूत्रभाष्यम् \n(अध्यायः ३-४)",
-		"title_roman":"Brahmasutra Bhasya",
+		"title_roman":"Brahmasūtrabhāṣyam \n(Adhyāyaḥ 3-4)",
 		"volume":"003",
 		"part":"01",
 		"pages":366,
@@ -28,7 +28,7 @@
 	},
 	{
 		"title":"उपनिषद्भाष्यम् \n(ईश, केन, कठ, प्रश्न)",
-		"title_roman":"Upanishad Bhashya",
+		"title_roman":"Upaniṣadbhāṣyam \n(Īśa, Kena, Kaṭha, Praśna)",
 		"volume":"004",
 		"part":"01",
 		"pages":366,
@@ -37,7 +37,7 @@
 	},
 	{
 		"title":"उपनिषद्भाष्यम् \n(मुण्डक, माण्डूक्य, ऐतरेय)",
-		"title_roman":"Upanishad Bhashya",
+		"title_roman":"Upaniṣadbhāṣyam \n(Muṇḍaka, Māṇḍūkya, Aitareya)",
 		"volume":"005",
 		"part":"01",
 		"pages":366,
@@ -46,7 +46,7 @@
 	},
 	{
 		"title":"उपनिषद्भाष्यम् \n(तैत्तिरीय, छान्दोग्य)",
-		"title_roman":"Taittiriyopanishad Bhashya",
+		"title_roman":"Upaniṣadbhāṣyam \n(Taittirīya, Chāndogya)",
 		"volume":"006",
 		"part":"01",
 		"pages":366,
@@ -55,7 +55,7 @@
 	},
 	{
 		"title":"छान्दोग्योपनिषद्भाष्यम्",
-		"title_roman":"Chhandogyopanishad Bhashya",
+		"title_roman":"Chāndogyopaniṣadbhāṣyam",
 		"volume":"007",
 		"part":"01",
 		"pages":366,
@@ -64,7 +64,7 @@
 	},
 	{
 		"title":"बृहदारण्यकोपनिषद्भाष्यम् \n(अध्यायाः १-२)",
-		"title_roman":"Brihadaranyakopanishad Bhashya",
+		"title_roman":"Bṛhadāraṇyakopaniṣadbhāṣyam \n(Adhyāyāḥ 1-2)",
 		"volume":"008",
 		"part":"01",
 		"pages":366,
@@ -73,7 +73,7 @@
 	},
 	{
 		"title":"बृहदारण्यकोपनिषद्भाष्यम् \n(अध्यायाः ३-४)",
-		"title_roman":"Brihadaranyakopanishad Bhashya",
+		"title_roman":"Bṛhadāraṇyakopaniṣadbhāṣyam \n(Adhyāyāḥ 3-4)",
 		"volume":"009",
 		"part":"01",
 		"pages":366,
@@ -82,7 +82,7 @@
 	},
 	{
 		"title":"नृसिंहपूर्वतापनीयोपनिशद्भाष्यम्, \nललितात्रिशतीभाष्यम्",
-		"title_roman":"Nirsimhapurvatapani Bhashya and Lalitatrisati Bhashya",
+		"title_roman":"Nṛsiṁhapūrvatāpanīyopaniśadbhāṣyam, \nLalitātriśatībhāṣyam",
 		"volume":"010",
 		"part":"01",
 		"pages":366,
@@ -91,7 +91,7 @@
 	},
 	{
 		"title":"श्रीमद्भगवद्गीताभाष्यम् \n(अध्यायाः १-९)",
-		"title_roman":"The Bhagavad Gita Bhashya",
+		"title_roman":"Śrīmadbhagavadgītābhāṣyam \n(Adhyāyāḥ 1-9)",
 		"volume":"011",
 		"part":"01",
 		"pages":366,
@@ -100,7 +100,7 @@
 	},
 	{
 		"title":"श्रीमद्भगवद्गीताभाष्यम् \n(अध्यायाः १०-१८)",
-		"title_roman":"The Bhagavad Gita Bhashya",
+		"title_roman":"Śrīmadbhagavadgītābhāṣyam \n(Adhyāyāḥ 10-18)",
 		"volume":"012",
 		"part":"01",
 		"pages":366,
@@ -109,7 +109,7 @@
 	},
 	{
 		"title":"विष्णुसहस्रनामभाष्यम्, \nसनत्सुजातीयभाष्यम्",
-		"title_roman":"Vishnusahasranama Bhashya, Sanathsujatiya Bhashya",
+		"title_roman":"Viṣṇusahasranāmabhāṣyam, \nSanatsujātīyabhāṣyam",
 		"volume":"013",
 		"part":"01",
 		"pages":366,
@@ -118,7 +118,7 @@
 	},
 	{
 		"title":"विवेकचूडामणिः, \nउपदेशसहस्री",
-		"title_roman":"Vivekachudamani, Upadesasahasri",
+		"title_roman":"Vivekacūḍāmaṇiḥ, \nUpadeśasahasrī",
 		"volume":"014",
 		"part":"01",
 		"pages":366,
@@ -127,7 +127,7 @@
 	},
 	{
 		"title":"प्रकरण प्रबन्धावलिः - १",
-		"title_roman":"Miscellaneous Prakaranas",
+		"title_roman":"Prakaraṇa Prabandhāvaliḥ \n1",
 		"volume":"015",
 		"part":"01",
 		"pages":366,
@@ -136,7 +136,7 @@
 	},
 	{
 		"title":"प्रकरण प्रबन्धावलिः - २",
-		"title_roman":"Miscellaneous Prakaranas",
+		"title_roman":"Prakaraṇa Prabandhāvaliḥ \n2",
 		"volume":"016",
 		"part":"01",
 		"pages":366,
@@ -145,7 +145,7 @@
 	},
 	{
 		"title":"स्तोत्राणि - १",
-		"title_roman":"Stotras",
+		"title_roman":"Stotrāṇi \n1",
 		"volume":"017",
 		"part":"01",
 		"pages":366,
@@ -154,7 +154,7 @@
 	},
 	{
 		"title":"स्तोत्राणि - २",
-		"title_roman":"Stotras",
+		"title_roman":"Stotrāṇi \n2",
 		"volume":"018",
 		"part":"01",
 		"pages":366,
@@ -163,7 +163,7 @@
 	},
 	{
 		"title":"प्रपञ्चसारः \n(पटलाः १-१९)",
-		"title_roman":"Prapanchasara",
+		"title_roman":"Prapañcasāraḥ \n(Paṭalāḥ 1-19)",
 		"volume":"019",
 		"part":"01",
 		"pages":366,
@@ -172,7 +172,7 @@
 	},
 	{
 		"title":"प्रपञ्चसारः \n(पटलाः २०-३३)",
-		"title_roman":"Prapanchasara",
+		"title_roman":"Prapañcasāraḥ \n(Paṭalāḥ 20-33)",
 		"volume":"020",
 		"part":"01",
 		"pages":366,

@@ -7,13 +7,14 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav nav ml-auto">
-                <li class="nav-item active"><a class="nav-link" routerLink="/page/home">मुख्यपृष्ठम्</a></li>
-                <li class="nav-item"><a class="nav-link about1" routerLink="/page/about1">प्रस्तावना</a></li>
-                <li class="nav-item hide"><a class="nav-link about2" routerLink="/page/about2">प्रस्तावना 2</a></li>
-                <li class="nav-item hide"><a class="nav-link about3" routerLink="/page/about3">प्रस्तावना 3</a></li>
-                <li class="nav-item hide"><a class="nav-link about4" routerLink="/page/about4">प्रस्तावना 4</a></li>
-                <li class="nav-item"><a class="nav-link volumes" routerLink="/volumes">संपुटाः</a></li>
-                <li class="nav-item"><a class="nav-link search" routerLink="/search">अन्वेषणम्</a></li>
+                <li class="nav-item active"><a class="nav-link" routerLink="/page/home">Home</a></li>
+                <li class="nav-item"><a class="nav-link about1" routerLink="/page/about1">About</a></li>
+                <li class="nav-item hide"><a class="nav-link about2" routerLink="/page/about2">About 2</a></li>
+                <li class="nav-item hide"><a class="nav-link about3" routerLink="/page/about3">About 3</a></li>
+                <li class="nav-item hide"><a class="nav-link about4" routerLink="/page/about4">About 4</a></li>
+                <li class="nav-item hide"><a class="nav-link about5" routerLink="/page/about5">About 5</a></li>
+                <li class="nav-item"><a class="nav-link volumes" routerLink="/volumes">Volumes</a></li>
+                <li class="nav-item"><a class="nav-link search" routerLink="/search">Search</a></li>
             </ul>
         </div>
     </div>
@@ -21,7 +22,7 @@
 <div *ngIf="(router.url != '/') && (router.url != '/page/home')" class="container">
   <div class="row">
     <div class="col-md-12">
-      <a (click)="location.back()" class="goBack"><i class="fa fa-arrow-left"></i> प्रतिगच्छथ</a>
+      <a (click)="location.back()" class="goBack feng"><i class="fa fa-arrow-left"></i> Back</a>
     </div>
   </div>
 </div>

@@ -391,7 +391,7 @@ a.goBack{
 
 .feng{
   font-family: 'Lato', sans-serif !important;
-  font-weight: 300;
+  font-weight: 300 !important;
 }
 .fsan{
   font-family: 'Vanivilas', sans-serif !important;

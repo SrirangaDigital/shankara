@@ -28,3 +28,6 @@ a.red{
 .red{
   color: #D84315 !important;
 }
+.weight300{
+  font-weight: 300;
+}
