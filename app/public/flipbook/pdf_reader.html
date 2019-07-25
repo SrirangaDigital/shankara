@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<script src="js/jquery.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/flipbook.style.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+
+<!-- JS dependencies -->
+<script src="BookReader/jquery-1.10.1.js"></script>
+<script src="BookReader/jquery-ui-1.12.0.min.js"></script>
+<script src="BookReader/jquery.browser.min.js"></script>
+<script src="BookReader/dragscrollable-br.js"></script>
+<script src="BookReader/jquery.colorbox-min.js"></script>
+<script src="BookReader/jquery.bt.min.js"></script>
+<!-- <script src="js/flipbook.min.js"></script> -->
+<script src="js/arrive.min.js"></script>
+<!-- BookReader and plugins -->
+<link rel="stylesheet" href="BookReader/BookReader.css"/>
+<script src="BookReader/BookReader.js"></script>
+
+<script type="text/javascript">
+
+    function addZero(val) {
+        while ((val+"").length < 4) {
+            val = "0" + val;
+        }
+        return val
+    }
+
+    function createBook(pages){
+        var i;
+        var b = []
+        for (i = 0; i < pages.length; i++) { 
+            pages[i]["pageNum"] = i
+            pages[i]["width"] = 1000
+            pages[i]["height"] = 1200
+            if (i%2) {
+                b.push([pages[i-1], pages[i]])
+            }
+        }
+        return b
+    }
+
+    $(document).ready(function(){
+        var volumeNum = getUrlParameter('file');
+        var selector = '#container';
+        var extraOptions = {};
+        var bookPageMap = {}
+
+        $.getJSON('bookImageMap.json', function(data) {
+            bookPageMap=data;
+        }).then(function(){
+            var book = createBook(bookPageMap[volumeNum].pages)
+            // TODO dynamic volume
+            var options = {
+                data: book,
+                // Override the path used to find UI images
+                imagesBaseURL: 'BookReader/images/',
+                ui: 'full', // embed, full (responsive)
+                isFullscreenActive:true,
+                el: selector
+            }
+        
+        Object.assign(options, extraOptions);
+        var br = new BookReader(options);
+        br.init();
+        // br.toggleFullscreen()
+        br.jumpToPage('leaf'+(parseInt(getUrlParameter('pageNumber'))+bookPageMap[volumeNum].relativeStart).toString())
+        })        
+        
+    })
+
+    var search = decodeURIComponent(getUrlParameter('search'));
+    if(search !== 'undefined'){
+        $(document).arrive(".fas.fa-search.flipbook-icon-fa.flipbook-menu-btn", function() {
+
+            $(this).trigger('click');
+            $('#findInput').val(search).trigger('keyup');
+        });
+    }
+
+    function getUrlParameter(sParam) {
+
+        var sPageURL = window.location.search.substring(1);
+        var sURLVariables = sPageURL.split('&');
+        
+        for (var i = 0; i < sURLVariables.length; i++) 
+        {
+            var sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] == sParam) 
+            {
+                return sParameterName[1];
+            }
+        }
+    }
+
+</script>
+
+</head>
+
+<body>
+<div id="container">
+</div>
+
+</body>
+
+</html>

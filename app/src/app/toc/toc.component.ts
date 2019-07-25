@@ -31,7 +31,7 @@ export class TocComponent implements OnInit {
       })
       .subscribe(res => {
         this.volumes = res;
-        this.basePdfUrl = 'http://127.0.0.1:3000/flipbook/pdf_flipbook_copy.html?file=';
+        this.basePdfUrl = 'http://127.0.0.1:3000/flipbook/pdf_reader.html?file=';
     });
   }
 }
