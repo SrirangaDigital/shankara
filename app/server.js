@@ -26,7 +26,8 @@ module.exports = () => {
 	app.use(express.static(path.join(__dirname, 'public')));
 
 	var commonPath = require('./server/models/commonPath');
-	if(commonPath) app.use(express.static(commonPath));
+
+	app.use('/sgcommon', express.static(commonPath));
 
 	// Route Files
 	const api = require('./server/routes/api');

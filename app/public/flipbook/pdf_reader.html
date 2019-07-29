@@ -59,15 +59,25 @@
                 data: book,
                 // Override the path used to find UI images
                 imagesBaseURL: 'BookReader/images/',
-                ui: 'full', // embed, full (responsive)
-                isFullscreenActive:true,
-                el: selector
+                ui: 'twopg', // embed, full (responsive)
+                // isFullscreenActive:true,
+                el: selector,
+                thumbnail: '//archive.org/download/BookReader/img/page014.jpg',
             }
         
         Object.assign(options, extraOptions);
         var br = new BookReader(options);
-        br.init();
-        // br.toggleFullscreen()
+        br.init()
+        // br.prepareTwoPageView()
+        br.enterFullscreen();
+        // br.twoPageGetAutofitReduce()
+        // br.zoom2up()
+        // br.switchMode()
+        // br.updateBrClasses()
+        // br.reloadImages()
+        
+        
+
         br.jumpToPage('leaf'+(parseInt(getUrlParameter('pageNumber'))+bookPageMap[volumeNum].relativeStart).toString())
         })        
         
