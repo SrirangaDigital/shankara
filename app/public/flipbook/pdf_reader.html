@@ -44,6 +44,10 @@
         return b
     }
 
+    function sleep (time) {
+        return new Promise((resolve) => setTimeout(resolve, time));
+    }
+
     $(document).ready(function(){
         var volumeNum = getUrlParameter('file');
         var selector = '#container';
@@ -59,26 +63,21 @@
                 data: book,
                 // Override the path used to find UI images
                 imagesBaseURL: 'BookReader/images/',
-                ui: 'twopg', // embed, full (responsive)
+                ui: 'full', // embed, full (responsive)
                 // isFullscreenActive:true,
                 el: selector,
                 thumbnail: '//archive.org/download/BookReader/img/page014.jpg',
             }
         
-        Object.assign(options, extraOptions);
-        var br = new BookReader(options);
-        br.init()
-        // br.prepareTwoPageView()
-        br.enterFullscreen();
-        // br.twoPageGetAutofitReduce()
-        // br.zoom2up()
-        // br.switchMode()
-        // br.updateBrClasses()
-        // br.reloadImages()
-        
-        
-
-        br.jumpToPage('leaf'+(parseInt(getUrlParameter('pageNumber'))+bookPageMap[volumeNum].relativeStart).toString())
+            Object.assign(options, extraOptions);
+            var br = new BookReader(options);
+            br.init()
+            sleep(300).then(() => {
+            br.enterFullscreen();
+            sleep(1000).then(() => {
+                br.jumpToPage('leaf'+(parseInt(getUrlParameter('pageNumber'))+bookPageMap[volumeNum].relativeStart).toString())
+            })
+            }); 
         })        
         
     })
@@ -112,7 +111,7 @@
 </head>
 
 <body>
-<div id="container">
+<div id="container" class="BRmode2up">
 </div>
 
 </body>

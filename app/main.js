@@ -31,6 +31,8 @@ function createWindow() {
     win = new BrowserWindow({ 
     
         show: false,
+        minWidth: 900,
+        minHeight: 600,
         icon: __dirname + '/dist/assets/img/icon.png',
         title: "Shankara Granthavali"
     });
