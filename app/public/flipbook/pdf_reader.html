@@ -75,7 +75,7 @@
             sleep(300).then(() => {
             br.enterFullscreen();
             sleep(1000).then(() => {
-                br.jumpToPage('leaf'+(parseInt(getUrlParameter('pageNumber'))+bookPageMap[volumeNum].relativeStart).toString())
+                br.jumpToPage('leaf'+(parseInt(getUrlParameter('pageNumber'))).toString())
             })
             }); 
         })        
