@@ -16,6 +16,12 @@ function createWindow() {
 
     // Instantiate Express App
     app.server = require(__dirname + '/server')();
+    
+    if (process.platform == 'darwin') {
+        minWidthDynamic = 1200
+    } else {
+        minWidthDynamic = 1000
+    }
 
     let splashScreen = new BrowserWindow({
         width: 162,
@@ -31,7 +37,7 @@ function createWindow() {
     win = new BrowserWindow({ 
     
         show: false,
-        minWidth: 900,
+        minWidth: minWidthDynamic,
         minHeight: 600,
         icon: __dirname + '/dist/assets/img/icon.png',
         title: "Shankara Granthavali"

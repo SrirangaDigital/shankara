@@ -37,7 +37,10 @@
             pages[i]["pageNum"] = i
             pages[i]["width"] = 1000
             pages[i]["height"] = 1200
-            if (i%2) {
+            if (i==0) {
+                b.push([pages[i]])
+            }
+            else if (i%2==0) {
                 b.push([pages[i-1], pages[i]])
             }
         }
