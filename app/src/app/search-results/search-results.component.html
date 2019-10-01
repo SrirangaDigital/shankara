@@ -20,7 +20,7 @@
           <div *ngIf="fullTextParam">
             <em>pages:</em>&nbsp;
             <span class="mr-2" *ngFor="let page of article.pageList">
-              <a target="_blank" [href]="basePdfUrl + article.volume + '.pdf&search=' + fullTextParam + '#' + page" class="pdf">{{ page }}</a>
+              <a target="_blank" [href]="basePdfUrl + article.volume + '&pageNumber=' + page" class="pdf">{{ page }}</a>
             </span>&nbsp;
           </div>
         </div>
