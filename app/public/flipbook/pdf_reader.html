@@ -66,14 +66,18 @@
                 data: book,
                 // Override the path used to find UI images
                 imagesBaseURL: 'BookReader/images/',
-                ui: 'full', // embed, full (responsive)
-                // isFullscreenActive:true,
+                //ui: 'full', // embed, full (responsive)
+                //isFullscreenActive:true,
                 el: selector,
                 thumbnail: '//archive.org/download/BookReader/img/page014.jpg',
+                filenum: getUrlParameter('file'),
+                page: getUrlParameter('pageNumber'),
+                initialSearchTerm: getUrlParameter('q'),
+                booksPageMapping: bookPageMap
             }
         
             Object.assign(options, extraOptions);
-            var br = new BookReader(options);
+            br = new BookReader(options);
             br.init()
             sleep(300).then(() => {
             br.enterFullscreen();
@@ -110,7 +114,11 @@
     }
 
 </script>
-
+<script src="BookReader/plugins/plugin.search.js"></script>
+<style>
+html, body { width: 50%; height: 50%;}
+#container { width: 100%; height: 100%; margin: auto auto;}
+    </style>
 </head>
 
 <body>

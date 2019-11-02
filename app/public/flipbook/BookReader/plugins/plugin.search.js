@@ -3,12 +3,12 @@
  */
 
 jQuery.extend(BookReader.defaultOptions, {
-    server: 'ia600609.us.archive.org',
+    server: '',
     bookId: '',
     subPrefix: '',
     bookPath: '',
     enableSearch: true,
-    searchInsideUrl: '/fulltext/inside.php',
+    searchInsideUrl: '127.0.0.1:3000/api/wordsearch/text/',
     initialSearchTerm: null,
 });
 
@@ -16,17 +16,17 @@ jQuery.extend(BookReader.defaultOptions, {
 BookReader.prototype.setup = (function (super_) {
     return function (options) {
         super_.call(this, options);
-
-        this.searchTerm = '';
+        this.searchTerm = options.initialSearchTerm;
         this.searchResults = null;
         this.searchInsideUrl = options.searchInsideUrl;
         this.enableSearch = options.enableSearch;
-
+		this.filenum = options.filenum;
         // Base server used by some api calls
         this.bookId = options.bookId;
         this.server = options.server;
         this.subPrefix = options.subPrefix;
         this.bookPath = options.bookPath;
+        this.booksPageMapping = options.booksPageMapping;
     };
 })(BookReader.prototype.setup);
 
@@ -160,8 +160,7 @@ BookReader.prototype.search = function(term, options) {
     // term = '"' + term + '"';
 
     // Remove the port and userdir
-    var url = 'https://' + this.server.replace(/:.+/, '') + this.searchInsideUrl + '?';
-
+    var url = 'http://' + this.server.replace(/:.+/, '') + this.searchInsideUrl +  this.searchTerm + '/' + this.filenum.replace('00','');
     // Remove subPrefix from end of path
     var path = this.bookPath;
     var subPrefixWithSlash = '/' + this.subPrefix;
@@ -181,15 +180,16 @@ BookReader.prototype.search = function(term, options) {
     // NOTE that the API does not expect / (slashes) to be encoded. (%2F) won't work
     paramStr = paramStr.replace(/%2F/g, '/');
 
-    url += paramStr;
+    //url += paramStr;
 
     if (!options.disablePopup) {
         this.showProgressPopup('<img class="searchmarker" src="'+this.imagesBaseURL + 'marker_srch-on.svg'+'"> Search results will appear below...');
     }
     $.ajax({
         url:url,
-        dataType:'jsonp',
+		dataType:'json',
         success: function(data) {
+			
             if (data.error || 0 == data.matches.length) {
                 options.error.call(br, data, options);
             } else {
@@ -205,6 +205,7 @@ BookReader.prototype.search = function(term, options) {
 //______________________________________________________________________________
 BookReader.prototype.BRSearchCallback = function(results, options) {
     this.searchResults = results;
+
     this.$('.BRnavpos .search').remove();
     this.$('.BRmobileSearchResultWrapper').empty(); // Empty mobile results
 
@@ -369,10 +370,11 @@ BookReader.prototype.addSearchResult = function(queryString, pageIndex) {
     var self = this;
 
     var pageNumber = this.getPageNum(pageIndex);
+
     var uiStringSearch = "Search result"; // i18n
     var uiStringPage = "Page"; // i18n
-
-    var percentThrough = BookReader.util.cssPercentage(pageIndex, this.getNumLeafs() - 1);
+//    var percentThrough = BookReader.util.cssPercentage(pageIndex, this.getNumLeafs() - 1);
+    var percentThrough = BookReader.util.cssPercentage(pageIndex, this.getNumLeafs());
     var pageDisplayString = uiStringPage + ' ' + this.getNavPageNumString(pageIndex, true);
 
     var searchBtSettings = {
