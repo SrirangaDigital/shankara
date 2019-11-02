@@ -2,6 +2,10 @@ const express = require('express');
 const _und = require("underscore")
 const router = express.Router();
 
+const elasticlunr = require('elasticlunr');
+const fs = require('fs');
+const path = require('path');
+
 // Bring in Volume Model
 let Volume = require('../models/volume');
 
@@ -28,7 +32,6 @@ router.get('/toc', function(req, res){
 
 	// Remove keys with null values
 	req.query = _und.pick(req.query, _und.identity);
-
 
 	var query = {};
 	_und.each(req.query, function(value, key) {
@@ -139,10 +142,181 @@ router.get('/textSearch', function(req, res){
 
 			result[0]['toc'] = '';
 			result[0]['pageList'] = pages;
+
 			return res.json(result);
 		}
 	});
+
 });
+
+router.get('/wordsearch/text/:term/:volume', function(req, res){
+
+	// Bring in WordIndex Model
+	// Only one index is loaded at a time
+
+	var volIndex = ('000' + req.params.volume).substr(-3);
+
+	//~ if ((parseInt(volIndex) < 0) || (parseInt(volIndex) > 56))
+		//~ return res.json([]);
+
+	let WordIndex = require('../models/wordIndex')(volIndex);
+	
+	let term = req.params.term;
+
+    var result = WordIndex.search(term, {
+        fields: {
+            // title: {boost: 1, expand: true}
+            word: {boost: 1, expand: false}
+        }
+    });
+
+	//~ console.log(result.length);
+	var matches = []
+	for(var i = 0; i < result.length; i++) {
+		
+		var wordMetaData = result[i]['ref'].split("|");		
+
+		var temp = {};
+		temp["text"] = "{{{Text}}} Found in";
+		temp["par"] = [{"page": Number(wordMetaData[1]), "boxes": [ {"l": (wordMetaData[2]/2700)*1000, "t": (wordMetaData[3]/4000)*1200, "r": (wordMetaData[4]/2700)*1000, "b": (wordMetaData[5]/4000)*1200}]}];
+
+		matches.push(temp);
+	}
+
+	var finalJSON = {};
+	finalJSON["matches"] = matches;
+
+	if(matches.length > 0){
+		finalJSON["error"] = 0;
+	}
+	else{
+		finalJSON["error"] = 1;
+	}
+	
+
+	console.log(finalJSON);	
+	//~ console.log(res.json(result));
+
+	//~ console.log("In word search!! " + volIndex);
+
+	return res.json(finalJSON);
+});
+
+
+router.get('/createindex', function(req, res){
+
+	var pad = "000";
+    var outFile = 1;
+    var outFileStr = '';
+	// var indexData = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/index/searchIndex001.json'), 'utf8'));
+	// var searchIndex = elasticlunr.Index.load(indexData);
+
+	var searchIndex = elasticlunr(function () {
+
+	    this.addField('text');
+	    this.setRef('pageid');
+	    this.saveDocument(false);
+	});
+
+	for(i=1;i<=20;i++) {
+
+		searchIndex.pipeline.remove(elasticlunr.stemmer);
+		searchIndex.pipeline.remove(elasticlunr.stopWordFilter);
+		searchIndex.pipeline.remove(elasticlunr.trimmer);
+
+		var str = "" + i;
+		var id = pad.substring(0, pad.length - str.length) + str;
+		
+		var volumeData = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/source/' + id + '.json'), 'utf8'))
+
+		for(j=0;j<volumeData.length;j++) {
+
+				//console.log(volumeData[j]['pageid']);
+				searchIndex.addDoc(volumeData[j]);
+			}
+		
+			outFileStr = "" + outFile;
+			outFileStr = pad.substring(0, pad.length - outFileStr.length) + outFileStr;
+			console.log(outFileStr);
+			//console.log("Count ->" + path.join(__dirname, '../../public/index/searchIndex' + outFileStr + '.json'));
+			fs.writeFileSync(path.join(__dirname, '../../public/index/searchIndex' + outFileStr + '.json'), JSON.stringify(searchIndex));
+			searchIndex = elasticlunr(function () {
+
+				this.addField('text');
+				this.setRef('pageid');
+				this.saveDocument(false);
+			});
+
+			outFile++;
+	}
+
+	//console.log("index creation completed");
+	var finalJSON = {};
+	finalJSON["result"] = "index creation completed";
+
+	return res.json(finalJSON);
+
+
+});
+
+router.get('/createwordindex', function(req, res){
+
+	var pad = "000";
+    var outFile = 1;
+    var outFileStr = '';
+	// var indexData = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/index/searchIndex001.json'), 'utf8'));
+	// var searchIndex = elasticlunr.Index.load(indexData);
+
+	var wordIndex = elasticlunr(function () {
+
+	    this.addField('word');
+	    this.setRef('pageid');
+	    this.saveDocument(false);
+	});
+
+	for(i=1;i<=20;i++) {
+
+		wordIndex.pipeline.remove(elasticlunr.stemmer);
+		wordIndex.pipeline.remove(elasticlunr.stopWordFilter);
+		wordIndex.pipeline.remove(elasticlunr.trimmer);
+
+		var str = "" + i;
+		var id = pad.substring(0, pad.length - str.length) + str;	
+		var volumeData = JSON.parse(fs.readFileSync(path.join(__dirname, '../../public/wordsource/' + id + '.json'), 'utf8'))
+
+		for(j=0;j<volumeData.length;j++) {
+
+				//console.log(volumeData[j]['pageid']);
+				wordIndex.addDoc(volumeData[j]);
+
+		}
+		
+		outFileStr = "" + outFile;
+		outFileStr = pad.substring(0, pad.length - outFileStr.length) + outFileStr;
+		//console.log(outFileStr);
+		//console.log("Count ->" + path.join(__dirname, '../../public/index/searchIndex' + outFileStr + '.json'));
+		fs.writeFileSync(path.join(__dirname, '../../public/wordindex/wordIndex' + outFileStr + '.json'), JSON.stringify(wordIndex));
+		wordIndex = elasticlunr(function () {
+
+			this.addField('word');
+			this.setRef('pageid');
+			this.saveDocument(false);
+		});
+
+		outFile++;
+	}
+
+	//console.log("word index creation completed");
+	var finalJSON = {};
+	finalJSON["result"] = "word index creation completed";
+
+	return res.json(finalJSON);
+});
+
+router.get('/fulltext', function(req, res){
+	
+	console.log("HERE!!");
+});	
 
 function getYearBoundary(searchString) {
 
