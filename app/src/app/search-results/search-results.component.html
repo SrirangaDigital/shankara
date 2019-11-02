@@ -18,9 +18,10 @@
           </h4>
           <h2 class="title"><a routerLink="/toc" [queryParams]="{volume: article.volume, search: this.urlParams.params.toc}" class="pdf">{{ article.title }}</a></h2>
           <div *ngIf="fullTextParam">
+			<p>{{ fullTextParam }}</p>  
             <em>pages:</em>&nbsp;
-            <span class="mr-2" *ngFor="let page of article.pageList">
-              <a target="_blank" [href]="basePdfUrl + article.volume + '&pageNumber=' + page" class="pdf">{{ page }}</a>
+            <span class="mr-2" *ngFor="let page of getSortedPageList(article.pageList)">
+              <a target="_blank" [href]="basePdfUrl + article.volume + '&pageNumber=' + page + '&q=' + fullTextParam" class="pdf">{{ page }}</a>
             </span>&nbsp;
           </div>
         </div>

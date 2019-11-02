@@ -83,4 +83,9 @@ export class SearchResultsComponent implements OnInit {
         this.searchingComplete = true;
     });
   }
+  
+  getSortedPageList(pageList: Array<number>){
+	var sortedArray: Array<number> = pageList.sort((a,b) => (Number(a) - Number(b)));
+	return sortedArray;
+  }
 }
