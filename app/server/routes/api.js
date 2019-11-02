@@ -194,7 +194,7 @@ router.get('/wordsearch/text/:term/:volume', function(req, res){
 	}
 	
 
-	console.log(finalJSON);	
+	//console.log(finalJSON);	
 	//~ console.log(res.json(result));
 
 	//~ console.log("In word search!! " + volIndex);
