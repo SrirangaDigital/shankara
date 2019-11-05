@@ -19,10 +19,21 @@
           <h2 class="title"><a routerLink="/toc" [queryParams]="{volume: article.volume, search: this.urlParams.params.toc}" class="pdf">{{ article.title }}</a></h2>
           <div *ngIf="fullTextParam">
 			<p>{{ fullTextParam }}</p>  
+<!--
             <em>pages:</em>&nbsp;
             <span class="mr-2" *ngFor="let page of getSortedPageList(article.pageList)">
               <a target="_blank" [href]="basePdfUrl + article.volume + '&pageNumber=' + page + '&q=' + fullTextParam" class="pdf">{{ page }}</a>
             </span>&nbsp;
+-->
+			<p>
+				<small>
+				<em>Text match found at page(s): </em>&nbsp; 
+				<span class="mr-2"> 
+					<a target="_blank" [href]="basePdfUrl + article.volume + '&pageNumber=' + page + '&q=' + fullTextParam" class="pdf">{{ getPageListCount(article.pageList) }}</a>
+				</span>
+				</small>
+			</p>
+
           </div>
         </div>
       </div>
