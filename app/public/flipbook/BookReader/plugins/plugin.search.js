@@ -189,7 +189,8 @@ BookReader.prototype.search = function(term, options) {
         url:url,
 		dataType:'json',
         success: function(data) {
-			
+
+			var br = new BookReader(options);
             if (data.error || 0 == data.matches.length) {
                 options.error.call(br, data, options);
             } else {

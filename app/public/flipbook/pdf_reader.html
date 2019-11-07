@@ -20,7 +20,7 @@
 <!-- BookReader and plugins -->
 <link rel="stylesheet" href="BookReader/BookReader.css"/>
 <script src="BookReader/BookReader.js"></script>
-
+<script src="BookReader/plugins/plugin.search.js"></script>
 <script type="text/javascript">
 
     function addZero(val) {
@@ -77,7 +77,7 @@
             }
         
             Object.assign(options, extraOptions);
-            br = new BookReader(options);
+            var br = new BookReader(options);
             br.init()
             sleep(300).then(() => {
             br.enterFullscreen();
@@ -114,7 +114,7 @@
     }
 
 </script>
-<script src="BookReader/plugins/plugin.search.js"></script>
+
 <style>
 html, body { width: 50%; height: 50%;}
 #container { width: 100%; height: 100%; margin: auto auto;}
