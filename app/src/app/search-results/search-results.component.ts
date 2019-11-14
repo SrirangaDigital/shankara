@@ -92,6 +92,13 @@ export class SearchResultsComponent implements OnInit {
   getPageListCount(pageList: Array<number>){
 	return pageList.length;
   }
-  
+
+  checkNumPages(pageList: Array<number>){
+
+	if(pageList.length <=20)
+		return true;
+	
+	return false;	
+  }  
   
 }
