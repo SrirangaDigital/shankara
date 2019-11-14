@@ -26,7 +26,7 @@ BookReader.prototype.setup = (function (super_) {
         this.server = options.server;
         this.subPrefix = options.subPrefix;
         this.bookPath = options.bookPath;
-        this.booksPageMapping = options.booksPageMapping;
+        //this.booksPageMapping = options.booksPageMapping;
     };
 })(BookReader.prototype.setup);
 
