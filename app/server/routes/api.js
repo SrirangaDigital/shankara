@@ -170,7 +170,7 @@ router.get('/wordsearch/text/:term/:volume', function(req, res){
         }
     });
 
-	//~ console.log(result.length);
+	//console.log(result);
 	var matches = []
 	for(var i = 0; i < result.length; i++) {
 		
@@ -179,9 +179,22 @@ router.get('/wordsearch/text/:term/:volume', function(req, res){
 		var temp = {};
 		temp["text"] = "{{{Text}}} Found in";
 		temp["par"] = [{"page": Number(wordMetaData[1]), "boxes": [ {"l": (wordMetaData[2]/2700)*1000, "t": (wordMetaData[3]/4000)*1200, "r": (wordMetaData[4]/2700)*1000, "b": (wordMetaData[5]/4000)*1200}]}];
-
-		matches.push(temp);
+		
+		var found = 0;
+		for(var j=0; j < matches.length; j++){
+			
+			//console.log(matches[j].par[0].page);
+			if(matches[j].par[0].page == Number(wordMetaData[1]))
+			{
+				found = 1;
+				matches[j].par[0].boxes.push({"l": (wordMetaData[2]/2700)*1000, "t": (wordMetaData[3]/4000)*1200, "r": (wordMetaData[4]/2700)*1000, "b": (wordMetaData[5]/4000)*1200});	
+			}
+		}
+		if(!found)
+			matches.push(temp);
 	}
+
+	
 
 	var finalJSON = {};
 	finalJSON["matches"] = matches;
@@ -193,7 +206,7 @@ router.get('/wordsearch/text/:term/:volume', function(req, res){
 		finalJSON["error"] = 1;
 	}
 	
-
+	matches.sort(compareForSorting);
 	//console.log(finalJSON);	
 	//~ console.log(res.json(result));
 
@@ -202,6 +215,20 @@ router.get('/wordsearch/text/:term/:volume', function(req, res){
 	return res.json(finalJSON);
 });
 
+function compareForSorting(a,b){
+	
+	const bandA = a.par[0].page;
+	const bandB = b.par[0].page;
+
+	let comparison = 0;
+
+	if (bandA > bandB) {
+		comparison = 1;
+	} else if (bandA < bandB) {
+		comparison = -1;
+	}
+	return comparison;
+}
 
 router.get('/createindex', function(req, res){
 
