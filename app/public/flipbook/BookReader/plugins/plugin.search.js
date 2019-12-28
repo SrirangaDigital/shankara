@@ -16,17 +16,19 @@ jQuery.extend(BookReader.defaultOptions, {
 BookReader.prototype.setup = (function (super_) {
     return function (options) {
         super_.call(this, options);
+
         this.searchTerm = options.initialSearchTerm;
+        //this.searchTerm = ''; //shivu
         this.searchResults = null;
         this.searchInsideUrl = options.searchInsideUrl;
         this.enableSearch = options.enableSearch;
 		this.filenum = options.filenum;
+		
         // Base server used by some api calls
         this.bookId = options.bookId;
         this.server = options.server;
         this.subPrefix = options.subPrefix;
         this.bookPath = options.bookPath;
-        //this.booksPageMapping = options.booksPageMapping;
     };
 })(BookReader.prototype.setup);
 
@@ -38,9 +40,15 @@ BookReader.prototype.init = (function (super_) {
                 && this.options.initialSearchTerm) {
             this.$('.BRsearchInput').val(this.options.initialSearchTerm);
             this.search(this.options.initialSearchTerm, {
-                goToFirstResult: true
+                goToFirstResult: false
             });
         }
+
+        var br = this;
+        $(document).on('BookReader:navToggled', function() {
+            var pinsVisibleState = br.navigationIsVisible() ? 'visible' : 'hidden';
+            br.refs.$BRfooter.find('.BRsearch').css({ visibility: pinsVisibleState });
+        });
     };
 })(BookReader.prototype.init);
 
@@ -65,7 +73,7 @@ BookReader.prototype.buildMobileDrawerElement = (function (super_) {
                 +"      </div>"
                 +"    </li>"
             ));
-        };
+        }
         return $el;
     };
 })(BookReader.prototype.buildMobileDrawerElement);
@@ -156,11 +164,12 @@ BookReader.prototype.search = function(term, options) {
     this.trigger(BookReader.eventNames.fragmentChange);
 
     // Add quotes to the term. This is to compenstate for the backends default OR query
-    // term = term.replace(/['"]+/g, '');
+    //term = term.replace(/['"]+/g, '');
     // term = '"' + term + '"';
 
     // Remove the port and userdir
-    var url = 'http://' + this.server.replace(/:.+/, '') + this.searchInsideUrl +  this.searchTerm + '/' + this.filenum.replace('00','');
+    //var url = 'https://' + this.server.replace(/:.+/, '') + this.searchInsideUrl + '?';
+    var url = 'http://' + this.searchInsideUrl +  this.searchTerm + '/' + this.filenum.replace('00','');
     // Remove subPrefix from end of path
     var path = this.bookPath;
     var subPrefixWithSlash = '/' + this.subPrefix;
@@ -187,13 +196,13 @@ BookReader.prototype.search = function(term, options) {
     }
     $.ajax({
         url:url,
-		dataType:'json',
+        dataType:'json',
         success: function(data) {
-
-			var br = new BookReader(options);
             if (data.error || 0 == data.matches.length) {
+				console.log("data:->error");
                 options.error.call(br, data, options);
             } else {
+				console.log("data:->" + data);
                 options.success.call(br, data, options);
             }
         },
@@ -206,7 +215,6 @@ BookReader.prototype.search = function(term, options) {
 //______________________________________________________________________________
 BookReader.prototype.BRSearchCallback = function(results, options) {
     this.searchResults = results;
-
     this.$('.BRnavpos .search').remove();
     this.$('.BRmobileSearchResultWrapper').empty(); // Empty mobile results
 
@@ -371,11 +379,10 @@ BookReader.prototype.addSearchResult = function(queryString, pageIndex) {
     var self = this;
 
     var pageNumber = this.getPageNum(pageIndex);
-
     var uiStringSearch = "Search result"; // i18n
     var uiStringPage = "Page"; // i18n
-//    var percentThrough = BookReader.util.cssPercentage(pageIndex, this.getNumLeafs() - 1);
-    var percentThrough = BookReader.util.cssPercentage(pageIndex, this.getNumLeafs());
+
+    var percentThrough = BookReader.util.cssPercentage(pageIndex, this.getNumLeafs() - 1);
     var pageDisplayString = uiStringPage + ' ' + this.getNavPageNumString(pageIndex, true);
 
     var searchBtSettings = {
