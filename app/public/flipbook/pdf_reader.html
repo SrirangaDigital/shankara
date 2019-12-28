@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/font-awesome.css">
 
 <!-- JS dependencies -->
-<script src="BookReader/jquery-1.10.1.js"></script>
+<script src="BookReader/jquery.min.js"></script>
 <script src="BookReader/jquery-ui-1.12.0.min.js"></script>
 <script src="BookReader/jquery.browser.min.js"></script>
 <script src="BookReader/dragscrollable-br.js"></script>
@@ -63,21 +63,30 @@
             var book = createBook(bookPageMap[volumeNum].pages)
             // TODO dynamic volume
             var options = {
+				  getNumLeafs: function() {
+					  return bookPageMap[volumeNum].pages.length;
+				  },
+				  getPageURI: function(index, reduce, rotate) {
+					  // reduce and rotate are ignored in this simple implementation, but we
+					  // could e.g. look at reduce and load images from a different directory
+					  // or pass the information to an image server
+					  var url = bookPageMap[volumeNum].pages[index].uri;
+					  return url;
+				  },
                 data: book,
                 // Override the path used to find UI images
                 imagesBaseURL: 'BookReader/images/',
-                //ui: 'full', // embed, full (responsive)
-                //isFullscreenActive:true,
+                ui: 'full', // embed, full (responsive)
+                isFullscreenActive:true,
                 el: selector,
                 thumbnail: '//archive.org/download/BookReader/img/page014.jpg',
                 filenum: getUrlParameter('file'),
-                page: getUrlParameter('pageNumber'),
+                pagenum: getUrlParameter('pageNumber'),
                 initialSearchTerm: getUrlParameter('q')
-                //~ booksPageMapping: bookPageMap
             }
         
             Object.assign(options, extraOptions);
-            var br = new BookReader(options);
+            br = new BookReader(options);
             br.init()
             sleep(300).then(() => {
             br.enterFullscreen();
@@ -122,7 +131,7 @@ html, body { width: 50%; height: 50%;}
 </head>
 
 <body>
-<div id="container" class="BRmode2up">
+<div id="container" class="BRmode2up BRtwopageview">
 </div>
 
 </body>
