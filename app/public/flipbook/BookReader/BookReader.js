@@ -3444,7 +3444,7 @@ BookReader.prototype.buildToolbarElement = function() {
     +     "<div class='BRtoolbarRight'>"
     +       "<span class='BRtoolbarSection BRtoolbarSectionInfo'>"
     +         "<button class='BRpill info js-tooltip'>Info</button>"
-    +         "<button class='BRpill share js-tooltip'>Share</button>"
+//  +         "<button class='BRpill share js-tooltip'>Share</button>"
     +       "</span>"
     // +       "<span class='BRtoolbarSection BRtoolbarSectionMenu'>"
               // TODO actual hamburger menu
@@ -3546,18 +3546,11 @@ BookReader.prototype.initToolbar = function(mode, ui) {
 BookReader.prototype.blankInfoDiv = function() {
     return $([
         '<div class="BRfloat BRinfo">',
-            '<div class="BRfloatHead">About this book',
+            '<div class="BRfloatHead">About this product',
                 '<button class="floatShut" href="javascript:;" onclick="$.fn.colorbox.close();"><span class="shift">Close</span></a>',
             '</div>',
-            '<div class="BRfloatBody">',
-                '<div class="BRfloatCover">',
-                '</div>',
-                '<div class="BRfloatMeta">',
-                    '<div class="BRfloatTitle">',
-                        '<h2><a/></h2>',
-                    '</div>',
-                '</div>',
-            '</div>',
+            '<p style="font-size: 24px;text-align:center;color:#9a291c;">Sri Shankara Granthavali</p>',
+            '<p style="font-size: 16px;line-height:22px;text-align:center;color: #5a5a5a;">Digital Version of the Memorial Edition of Sri Shankaracharya\'s Works<br />Published by the Vani Vilasa Press, Srirangam.<br />INR ₹1000 and USD $50 in other countries<br />20 Volumes (1910-14)<br /><br /><a href="https://sriranga.digital/SG" target="_blank">Order online</a></p>',
             '<div class="BRfloatFoot">',
                 '<a href="https://openlibrary.org/dev/docs/bookreader">About the BookReader</a>',
             '</div>',
@@ -4688,6 +4681,7 @@ BookReader.prototype.getSpreadIndices = function(pindex) {
  */
 BookReader.prototype.leafNumToIndex = function(leafNum) {
     var dataf = this._getDataFlattened();
+    //console.log("leafNumToIndex: -> " + dataf)
     for (var i = 0; i < dataf.length; i++) {
         if (dataf[i].leafNum == leafNum) {
             return i;
@@ -4873,6 +4867,7 @@ BookReader.prototype._getDataFlattened = function() {
 
     var flattend = [];
     var prevPageSide = null;
+
     for (var i = 0; i < this.data.length; i++) {
         for (var j = 0; j < this.data[i].length; j++) {
             if (!this.data[i][j].pageSide) {
@@ -4888,6 +4883,7 @@ BookReader.prototype._getDataFlattened = function() {
     }
     // length is used as a cache breaker
     this._getDataFlattened.cached = [flattend, this.data.length];
+    //console.log("Flattened: -> " + flattend.length)
     return flattend;
 };
 
