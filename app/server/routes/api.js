@@ -177,7 +177,7 @@ router.get('/wordsearch/text/:term/:volume', function(req, res){
 		var wordMetaData = result[i]['ref'].split("|");		
 
 		var temp = {};
-		temp["text"] = "{{{Text}}} Found in";
+		temp["text"] = term + " Found in";
 		temp["par"] = [{"page": Number(wordMetaData[1]), "boxes": [ {"l": (wordMetaData[2]/2700)*1000, "t": (wordMetaData[3]/4000)*1200, "r": (wordMetaData[4]/2700)*1000, "b": (wordMetaData[5]/4000)*1200}]}];
 		
 		var found = 0;
