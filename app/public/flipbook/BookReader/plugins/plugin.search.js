@@ -38,9 +38,9 @@ BookReader.prototype.init = (function (super_) {
 
         if (this.options.enableSearch
                 && this.options.initialSearchTerm) {
-            this.$('.BRsearchInput').val(this.options.initialSearchTerm);
+            this.$('.BRsearchInput').val(decodeURIComponent(this.options.initialSearchTerm));
             this.search(this.options.initialSearchTerm, {
-                goToFirstResult: false
+                goToFirstResult: true
             });
         }
 
@@ -145,7 +145,7 @@ BookReader.prototype.search = function(term, options) {
     options = options !== undefined ? options : {};
     var defaultOptions = {
         // {bool} (default=false) goToFirstResult - jump to the first result
-        goToFirstResult: false,
+        goToFirstResult: true,
         // {bool} (default=false) disablePopup - don't show the modal progress
         disablePopup: false,
         error: this.BRSearchCallbackErrorDesktop.bind(this),
@@ -227,6 +227,7 @@ BookReader.prototype.BRSearchCallback = function(results, options) {
         this.addSearchResult(results.matches[i].text, this.leafNumToIndex(results.matches[i].par[0].page));
         if (i === 0 && options.goToFirstResult === true) {
           firstResultIndex = this.leafNumToIndex(results.matches[i].par[0].page);
+          //console.log("first result: -> " + firstResultIndex)
         }
     }
     this.updateSearchHilites();
