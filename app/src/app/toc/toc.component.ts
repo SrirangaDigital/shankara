@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Component, OnInit, ViewEncapsulation, ElementRef } from '@angular/core';
+import { Router, ActivatedRoute, ParamMap, NavigationEnd } from '@angular/router';
+
 import 'rxjs/add/operator/switchMap';
 
 // Import the DataService
@@ -17,10 +18,18 @@ export class TocComponent implements OnInit {
   volumes: Array<any>;
   urlParams: ParamMap;
   basePdfUrl: String;
-   
-  // Create an instance of the DataService through dependency injection
-  constructor( private route: ActivatedRoute, private router: Router, private _dataService: DataService) { }
 
+  // Create an instance of the DataService through dependency injection
+  constructor( private route: ActivatedRoute, private router: Router, private _dataService: DataService,private elRef:ElementRef) { }
+
+  ngAfterViewInit() 
+  {  
+      setTimeout(() => {
+          /* returns x here */
+          this.onClick();
+      }, 500);
+  }
+ 
   ngOnInit() {
     
     this.route.queryParamMap
@@ -33,5 +42,12 @@ export class TocComponent implements OnInit {
         this.volumes = res;
         this.basePdfUrl = 'http://127.0.0.1:3000/flipbook/pdf_reader.html?file=';
     });
+  }
+
+
+  onClick() {
+    var spanElement = this.elRef.nativeElement.querySelector('.highlight');
+    var topValue = spanElement.getBoundingClientRect().top
+    document.body.scrollTop = document.documentElement.scrollTop = topValue;
   }
 }
