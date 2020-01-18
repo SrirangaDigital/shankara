@@ -3550,7 +3550,7 @@ BookReader.prototype.blankInfoDiv = function() {
                 '<button class="floatShut" href="javascript:;" onclick="$.fn.colorbox.close();"><span class="shift">Close</span></a>',
             '</div>',
             '<p style="font-size: 24px;text-align:center;color:#9a291c;">Sri Shankara Granthavali</p>',
-            '<p style="font-size: 16px;line-height:22px;text-align:center;color: #5a5a5a;">Digital Version of the Memorial Edition of Sri Shankaracharya\'s Works<br />Published by the Vani Vilasa Press, Srirangam.<br />INR ₹1000 and USD $50 in other countries<br />20 Volumes (1910-14)<br /><br /><a href="https://sriranga.digital/SG" target="_blank">Order online</a></p>',
+            '<p style="font-size: 16px;line-height:22px;text-align:center;color: #5a5a5a;">Digital Version of the Memorial Edition of Sri Shankaracharya\'s Works<br />Published by the Vani Vilasa Press, Srirangam.<br />INR ₹1000 and USD 50 in other countries<br />20 Volumes (1910-14)<br /><br /><a href="https://sriranga.digital/SG" target="_blank">Order online</a></p>',
             '<div class="BRfloatFoot">',
                 '<a href="https://openlibrary.org/dev/docs/bookreader">About the BookReader</a>',
             '</div>',
