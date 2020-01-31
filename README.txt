@@ -46,15 +46,4 @@ into the computer and is active.
 If you see a single page view when viewing books in a bookreader then,
 please click on the two page mode at the bottom for better experience.
 
-Search instructions
-------------------------------------------
-1) If you face any problem while viewing books by navigating from search results page then do the following:
-
-	i) go to the volumes page,
-   ii) click on the corresponding volume shown in the result which will take you to the TOC for that volume,
-  iii) click on any of the TOC entry which will open the book,
-   iv) on the top right of the bookreader there is a search text field, enter the search term there and then hit enter button on the keyboard,
-    v) if the search term is found then blue colored droplets will be shown on the progress bar near the bottom of the bookreader,
-   vi) please click on those droplets to go the corresponding page. Search term will be highlighted on those pages.
-
-For further queries and a more elaborate FAQ please visit https://sriranga.digital/SG-FAQs
+For further queries please visit https://sriranga.digital/SG-FAQs
