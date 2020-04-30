@@ -34,7 +34,7 @@
     "elasticlunr": "^0.9.5",
     "electron-context-menu": "^0.9.1",
     "express": "^4.16.2",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "nedb": "^1.8.0",
     "popper.js": "^1.12.6",
     "rxjs": "^6.2.2",
