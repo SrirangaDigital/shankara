@@ -245,7 +245,9 @@ mat-label {
 .mainpage p, .mainpage blockquote, .mainpage dl, .mainpage ul, .mainpage ol, .archiveIcon{
   font-family: 'Lato', sans-serif;
   margin-bottom: 20px;
-  font-weight: 300;
+/*
+  font-weight: 400;
+*/
   color: #333;
   line-height: 32px;
 }
@@ -391,7 +393,9 @@ a.goBack{
 
 .feng{
   font-family: 'Lato', sans-serif !important;
-  font-weight: 300 !important;
+/*
+  font-weight: 400 !important;
+*/
 }
 .fsan{
   font-family: 'Vanivilas', sans-serif !important;
@@ -419,10 +423,14 @@ a.goBack{
   text-decoration: none;
   text-align: center;
   font-size: 18px;
+/*
   font-weight: 300;
+*/
 }
 .about a small{
+/*
   font-weight: 300;
+*/
 }
 .about a:hover{
   text-decoration: none;
@@ -442,11 +450,15 @@ a.goBack{
   font-size: 24px;
   text-align: center;
   color: #D84315;
+/*
   font-weight: 300;
+*/
 }
 .about h5{
   font-size: 18px;
   text-align: center;
   font-style: italic;
+/*
   font-weight: 300;
+*/
 }

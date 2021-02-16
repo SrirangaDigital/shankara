@@ -1,6 +1,8 @@
+const electron = require('electron')
 const {
     app, BrowserWindow
-} = require('electron')
+} = electron
+
 
 require('electron-context-menu')({
     prepend: (params, browserWindow) => [{
@@ -17,6 +19,21 @@ function createWindow() {
     // Instantiate Express App
     app.server = require(__dirname + '/server')();
 
+var screenElectron = electron.screen
+
+var mainScreen = screenElectron.getPrimaryDisplay();
+var allScreens = screenElectron.getAllDisplays();
+var dimensions = mainScreen.size;
+//console.log(dimensions.width + "x" + dimensions.height);
+
+	
+    if (process.platform == 'darwin') {
+        minWidthDynamic = dimensions.width - 200
+    } else {
+        minWidthDynamic = dimensions.width - 200
+    }
+
+
     let splashScreen = new BrowserWindow({
         width: 162,
         height: 162,
@@ -31,6 +48,8 @@ function createWindow() {
     win = new BrowserWindow({ 
     
         show: false,
+        minWidth: minWidthDynamic,
+        minHeight: dimensions.height - 100,
         icon: __dirname + '/dist/assets/img/icon.png',
         title: "Shankara Granthavali"
     });

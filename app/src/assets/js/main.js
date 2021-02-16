@@ -1,9 +1,10 @@
 jQuery(document).ready(function($){
 	
 	//open-close submenu on mobile
+	
 	$('.cd-main-nav').on('click', function(event){
 		if($(event.target).is('.cd-main-nav')) $(this).children('ul').toggleClass('is-visible');
-	});
+	});	
 
 	// browser window scroll (in pixels) after which the "menu" link is shown
 	var offset = 20;
@@ -90,5 +91,5 @@ jQuery(document).ready(function($){
     	target = target.replace(/ .*/, '');
     	console.log(target);
     	$('#navbarNav .' + target)[0].click();
-    });
+    });    
 });

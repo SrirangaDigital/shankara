@@ -67,7 +67,7 @@ export class SearchResultsComponent implements OnInit {
 
         this.articles = this.articles.concat(res[0]);
         this.numresults = this.articles.length;
-        this.basePdfUrl = 'http://127.0.0.1:3000/flipbook/pdf_flipbook.html?file=../Volumes/';
+        this.basePdfUrl = 'http://127.0.0.1:3000/flipbook/pdf_reader.html?file=';
         if(this.currentVolume == this.maxVolume) this.searchingComplete = true;
       });
   }
@@ -79,8 +79,26 @@ export class SearchResultsComponent implements OnInit {
 
         this.articles = res;
         this.numresults = this.articles.length;
-        this.basePdfUrl = 'http://127.0.0.1:3000/flipbook/pdf_flipbook.html?file=../Volumes/';
+        this.basePdfUrl = 'http://127.0.0.1:3000/flipbook/pdf_reader.html?file=';
         this.searchingComplete = true;
     });
   }
+  
+  getSortedPageList(pageList: Array<number>){
+	var sortedArray: Array<number> = pageList.sort((a,b) => (Number(a) - Number(b)));
+	return sortedArray;
+  }
+
+  getPageListCount(pageList: Array<number>){
+	return pageList.length;
+  }
+
+  checkNumPages(pageList: Array<number>){
+
+	if(pageList.length <=20)
+		return true;
+	
+	return false;	
+  }  
+  
 }
