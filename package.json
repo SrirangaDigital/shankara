@@ -43,7 +43,7 @@
     "electron-context-menu": "^0.9.1"
   },
   "devDependencies": {
-    "electron": "^1.8.2",
+    "electron": "^15.5.5",
     "electron-builder": "^20.40.2"
   }
 }
